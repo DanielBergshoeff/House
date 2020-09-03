@@ -199,6 +199,7 @@ public class PlayerController : MonoBehaviour
         currentCurtain = t;
         myRigidbody.isKinematic = true;
         curtainRelativePos = transform.position - t.position;
+        curtainRiding = true;
         jumping = false;
         curtainRidingCooldown = true;
     }

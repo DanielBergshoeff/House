@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private bool curtainRidingCooldown = false;
     private bool hasGlider = false;
     private bool gliding = false;
+    private bool chairing = false;
+    private bool chairingCooldown = false;
     private GameObject glider;
 
 
@@ -80,6 +82,9 @@ public class PlayerController : MonoBehaviour
 
                     if (curtainRidingCooldown)
                         curtainRidingCooldown = false;
+
+                    if (chairingCooldown)
+                        chairingCooldown = false;
                 }
             }
             return;
@@ -102,7 +107,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Move() {
-        if (moveDir.magnitude < 0.1f || curtainRiding)
+        if (moveDir.magnitude < 0.1f || curtainRiding || chairing)
             return;
 
         Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
@@ -120,6 +125,12 @@ public class PlayerController : MonoBehaviour
             myRigidbody.isKinematic = false;
             curtainRiding = false;
             return;
+        }
+
+        if (chairing) {
+            myRigidbody.isKinematic = false;
+            transform.parent = null;
+            chairing = false;
         }
 
         if (jumping)
@@ -146,21 +157,26 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         CheckForBB(collision);
         CheckForCurtain(collision);
-        CheckForChair(collision);
     }
 
-    private void CheckForChair(Collision collision) {
-        if (!collision.collider.CompareTag("Chair"))
+    private void CheckForChair(Collider other) {
+        if (!other.CompareTag("Chair") || chairingCooldown)
             return;
 
-        transform.position = collision.collider.transform.position + Vector3.up * 0.25f;
-        transform.parent = collision.collider.transform;
-        Debug.Log(myRigidbody.velocity);
-        collision.collider.GetComponent<Rigidbody>().AddForce(myRigidbody.velocity);
+        Debug.Log(moveDir);
+        other.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(moveDir.x, 0f, moveDir.y) * 200f);
+
+        transform.position = other.transform.parent.position + Vector3.up * 1f;
+        transform.parent = other.transform.parent;
+
         myRigidbody.isKinematic = true;
+        chairing = true;
+        chairingCooldown = true;
     }
 
     private void OnTriggerEnter(Collider other) {
+        CheckForChair(other);
+
         if (!other.CompareTag("Glider"))
             return;
 

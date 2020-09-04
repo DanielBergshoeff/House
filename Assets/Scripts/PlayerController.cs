@@ -35,16 +35,6 @@ public class PlayerController : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>();
         myConstantForce = GetComponent<ConstantForce>();
-
-        var playerMap = playerControls.FindActionMap("Player");
-        movement = playerMap.FindAction("Move");
-        movement.performed += OnMove;
-        movement.canceled += OnMove;
-        movement.Enable();
-
-        jump = playerMap.FindAction("Jump");
-        jump.performed += OnJump;
-        jump.Enable();
     }
 
     // Update is called once per frame
@@ -116,11 +106,11 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
-    private void OnMove(InputAction.CallbackContext context) {
-        moveDir = context.ReadValue<Vector2>();
+    private void OnMove(InputValue context) {
+        moveDir = context.Get<Vector2>();
     }
 
-    private void OnJump(InputAction.CallbackContext context) {
+    private void OnJump() {
         if (curtainRiding) {
             myRigidbody.isKinematic = false;
             curtainRiding = false;
@@ -137,7 +127,6 @@ public class PlayerController : MonoBehaviour
             return;
 
         myRigidbody.AddForce(Vector3.up * JumpForce);
-        
     }
 
     private void StartGliding() {
@@ -163,7 +152,6 @@ public class PlayerController : MonoBehaviour
         if (!other.CompareTag("Chair") || chairingCooldown)
             return;
 
-        Debug.Log(moveDir);
         other.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(moveDir.x, 0f, moveDir.y) * 200f);
 
         transform.position = other.transform.parent.position + Vector3.up * 1f;
@@ -240,8 +228,10 @@ public class PlayerController : MonoBehaviour
         }
 
         if (bb.transform.position.y != currentHeight && Mathf.Abs(currentHeight - bb.transform.position.y) < 0.55f) {
-            //transform.position = bb.transform.position + Vector3.up * 0.5f;
-            transform.position = transform.position + Vector3.up * 0.5f;
+            if(Physics.Raycast(bb.transform.position + Vector3.up * 1f, -bb.transform.up, out hit, 3f)) {
+                if(hit.transform == bb.transform)
+                    transform.position = transform.position + Vector3.up * 0.5f;
+            }
         }
     }
 }

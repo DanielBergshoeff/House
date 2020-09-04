@@ -121,6 +121,9 @@ public class PlayerController : MonoBehaviour
             return;
 
         Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
+        targetDir = Camera.main.transform.TransformDirection(targetDir);
+        targetDir.y = 0.0f;
+
         transform.position = transform.position + targetDir * Time.deltaTime * MoveSpeed;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDir, Time.deltaTime * RotateSpeed, 0f);
         transform.rotation = Quaternion.LookRotation(newDirection);

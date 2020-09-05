@@ -65,16 +65,16 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(transform.position, -transform.up, out hit1, 1f)) {
                 if (hit1.distance < 0.51f) {
                     //Landed
-                    if(jumpStartPos - transform.position.y > 1 && !gliding) {
+                    if (jumpStartPos - transform.position.y > 2f && !gliding) {
                         PlayerAnimator.SetTrigger("Dizzy");
                         dizzy = true;
                         Invoke("UnDizzy", 2f);
                     }
-                    jumping = false;
 
                     if (gliding) {
                         StopGliding();
                     }
+                    jumping = false;
 
                     if (!hit1.collider.CompareTag("BuildingBlock"))
                         return;
@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
                     if (bb2.Bouncy) {
                         Vector3 bounce = new Vector3(myRigidbody.velocity.x, Mathf.Clamp(-myRigidbody.velocity.y, 0f, 5f), myRigidbody.velocity.z) * BounceStrength;
                         myRigidbody.AddForce(bounce);
+                        PlayerAnimator.SetTrigger("Jump");
                     }
 
                     if (curtainRidingCooldown)
@@ -181,9 +182,13 @@ public class PlayerController : MonoBehaviour
         if (!other.CompareTag("Chair") || chairingCooldown)
             return;
 
-        other.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(moveDir.x, 0f, moveDir.y) * 200f);
+        Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
+        targetDir = Camera.main.transform.TransformDirection(targetDir);
+        targetDir.y = 0.0f;
 
-        transform.position = other.transform.parent.position + Vector3.up * 1f;
+        other.transform.parent.GetComponent<Rigidbody>().AddForce(targetDir * 200f);
+
+        transform.position = other.transform.parent.position + Vector3.up * 2f;
         transform.parent = other.transform.parent;
 
         myRigidbody.isKinematic = true;

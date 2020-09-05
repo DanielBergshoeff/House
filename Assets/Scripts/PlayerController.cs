@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float BounceStrength = 2f;
     public InputActionAsset playerControls;
     public Animator PlayerAnimator;
+    public Camera MyCamera;
 
     private InputAction movement;
     private InputAction jump;
@@ -122,7 +123,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
-        targetDir = Camera.main.transform.TransformDirection(targetDir);
+        targetDir = MyCamera.transform.TransformDirection(targetDir);
         targetDir.y = 0.0f;
 
         transform.position = transform.position + targetDir * Time.deltaTime * MoveSpeed;
@@ -183,7 +184,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
-        targetDir = Camera.main.transform.TransformDirection(targetDir);
+        targetDir = MyCamera.transform.TransformDirection(targetDir);
         targetDir.y = 0.0f;
 
         other.transform.parent.GetComponent<Rigidbody>().AddForce(targetDir * 200f);

@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float JumpForce = 1f;
     public float BounceStrength = 2f;
     public InputActionAsset playerControls;
+    public Animator PlayerAnimator;
+    public Camera MyCamera;
 
     private InputAction movement;
     private InputAction jump;
@@ -27,7 +29,12 @@ public class PlayerController : MonoBehaviour
     private bool gliding = false;
     private bool chairing = false;
     private bool chairingCooldown = false;
+    private bool climbing = false;
+    private bool climbingCooldown = false;
     private GameObject glider;
+    private bool dizzy = false;
+
+    private float jumpStartPos;
 
 
     // Start is called before the first frame update
@@ -35,6 +42,10 @@ public class PlayerController : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>();
         myConstantForce = GetComponent<ConstantForce>();
+    }
+
+    private void UnDizzy() {
+        dizzy = false;
     }
 
     // Update is called once per frame
@@ -55,11 +66,16 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(transform.position, -transform.up, out hit1, 1f)) {
                 if (hit1.distance < 0.51f) {
                     //Landed
-                    jumping = false;
+                    if (jumpStartPos - transform.position.y > 2f && !gliding) {
+                        PlayerAnimator.SetTrigger("Dizzy");
+                        dizzy = true;
+                        Invoke("UnDizzy", 2f);
+                    }
 
                     if (gliding) {
                         StopGliding();
                     }
+                    jumping = false;
 
                     if (!hit1.collider.CompareTag("BuildingBlock"))
                         return;
@@ -68,6 +84,7 @@ public class PlayerController : MonoBehaviour
                     if (bb2.Bouncy) {
                         Vector3 bounce = new Vector3(myRigidbody.velocity.x, Mathf.Clamp(-myRigidbody.velocity.y, 0f, 5f), myRigidbody.velocity.z) * BounceStrength;
                         myRigidbody.AddForce(bounce);
+                        PlayerAnimator.SetTrigger("Jump");
                     }
 
                     if (curtainRidingCooldown)
@@ -75,6 +92,9 @@ public class PlayerController : MonoBehaviour
 
                     if (chairingCooldown)
                         chairingCooldown = false;
+
+                    if (climbingCooldown)
+                        climbingCooldown = false;
                 }
             }
             return;
@@ -84,10 +104,12 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(transform.position, -transform.up, out hit1, 1f)) {
                 if (hit1.distance > 0.51f) {
                     jumping = true;
+                    jumpStartPos = transform.position.y;
                 }
             }
             else {
                 jumping = true;
+                jumpStartPos = transform.position.y;
             }
         }
     }
@@ -97,10 +119,13 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Move() {
-        if (moveDir.magnitude < 0.1f || curtainRiding || chairing)
+        if (moveDir.magnitude < 0.1f || curtainRiding || chairing || climbing || dizzy)
             return;
 
         Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
+        targetDir = MyCamera.transform.TransformDirection(targetDir);
+        targetDir.y = 0.0f;
+
         transform.position = transform.position + targetDir * Time.deltaTime * MoveSpeed;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDir, Time.deltaTime * RotateSpeed, 0f);
         transform.rotation = Quaternion.LookRotation(newDirection);
@@ -108,12 +133,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove(InputValue context) {
         moveDir = context.Get<Vector2>();
+        PlayerAnimator.SetFloat("Speed", context.Get<Vector2>().magnitude);
     }
 
     private void OnJump() {
         if (curtainRiding) {
             myRigidbody.isKinematic = false;
             curtainRiding = false;
+            PlayerAnimator.SetBool("Hanging", false);
             return;
         }
 
@@ -121,12 +148,14 @@ public class PlayerController : MonoBehaviour
             myRigidbody.isKinematic = false;
             transform.parent = null;
             chairing = false;
+            PlayerAnimator.SetBool("Chair", false);
         }
 
-        if (jumping)
+        if (jumping || dizzy)
             return;
 
         myRigidbody.AddForce(Vector3.up * JumpForce);
+        PlayerAnimator.SetTrigger("Jump");
     }
 
     private void StartGliding() {
@@ -134,12 +163,14 @@ public class PlayerController : MonoBehaviour
         gliding = true;
         myRigidbody.useGravity = false;
         myConstantForce.force = new Vector3(0f, -2f, 0f);
+        PlayerAnimator.SetBool("Glide", true);
     }
 
     private void StopGliding() {
         gliding = false;
         myRigidbody.useGravity = true;
         myConstantForce.force = Vector3.zero;
+        PlayerAnimator.SetBool("Glide", false);
         Destroy(glider);
     }
 
@@ -152,14 +183,19 @@ public class PlayerController : MonoBehaviour
         if (!other.CompareTag("Chair") || chairingCooldown)
             return;
 
-        other.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(moveDir.x, 0f, moveDir.y) * 200f);
+        Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
+        targetDir = MyCamera.transform.TransformDirection(targetDir);
+        targetDir.y = 0.0f;
 
-        transform.position = other.transform.parent.position + Vector3.up * 1f;
+        other.transform.parent.GetComponent<Rigidbody>().AddForce(targetDir * 200f);
+
+        transform.position = other.transform.parent.position + Vector3.up * 2f;
         transform.parent = other.transform.parent;
 
         myRigidbody.isKinematic = true;
         chairing = true;
         chairingCooldown = true;
+        PlayerAnimator.SetBool("Chair", true);
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -169,8 +205,9 @@ public class PlayerController : MonoBehaviour
             return;
 
         glider = other.gameObject;
-        glider.transform.position = transform.position + Vector3.up * 1f;
+        glider.transform.position = transform.position + Vector3.up * 0.5f;
         glider.transform.parent = transform;
+        glider.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
         hasGlider = true;
     }
 
@@ -206,10 +243,11 @@ public class PlayerController : MonoBehaviour
         curtainRiding = true;
         jumping = false;
         curtainRidingCooldown = true;
+        PlayerAnimator.SetBool("Hanging", true);
     }
 
     private void CheckForBB(Collision collision) {
-        if (jumping) {
+        if (jumping || climbing || climbingCooldown) {
             return;
         }
 
@@ -229,9 +267,20 @@ public class PlayerController : MonoBehaviour
 
         if (bb.transform.position.y != currentHeight && Mathf.Abs(currentHeight - bb.transform.position.y) < 0.55f) {
             if(Physics.Raycast(bb.transform.position + Vector3.up * 1f, -bb.transform.up, out hit, 3f)) {
-                if(hit.transform == bb.transform)
-                    transform.position = transform.position + Vector3.up * 0.5f;
+                if (hit.transform == bb.transform) {
+                    //PlayerAnimator.SetTrigger("Climb");
+                    transform.position = transform.position + Vector3.up * 0.5f + transform.forward * 0.2f;
+                    climbing = true;
+                    Invoke("DoClimb", 0.1f);
+                }
+
             }
         }
+    }
+
+    private void DoClimb() {
+        //transform.position = transform.position + Vector3.up * 0.5f + transform.forward * 0.2f;
+        climbing = false;
+        climbingCooldown = true;
     }
 }

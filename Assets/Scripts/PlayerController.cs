@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public InputActionAsset playerControls;
     public Animator PlayerAnimator;
     public Camera MyCamera;
+    public bool TagIt;
+
 
     private InputAction movement;
     private InputAction jump;
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     private float jumpStartPos;
 
+    private SkinnedMeshRenderer myRenderer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +50,25 @@ public class PlayerController : MonoBehaviour
 
     private void UnDizzy() {
         dizzy = false;
+    }
+
+    public void SetAsIt() {
+        if(myRenderer == null)
+            myRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
+        TagIt = true;
+        myRenderer.material = GameManager.Instance.ItColor;
+        PlayerAnimator.SetTrigger("Dizzy");
+        dizzy = true;
+        Invoke("UnDizzy", 2f);
+    }
+
+    public void SetAsNotIt() {
+        if (myRenderer == null)
+            myRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
+        TagIt = false;
+        myRenderer.material = GameManager.Instance.NormalColor;
     }
 
     // Update is called once per frame
@@ -177,6 +200,20 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         CheckForBB(collision);
         CheckForCurtain(collision);
+        CheckForPlayer(collision);
+    }
+
+    private void CheckForPlayer(Collision collision) {
+        if (!collision.collider.CompareTag("Player"))
+            return;
+
+        if (TagIt) {
+            SetAsNotIt();
+        }
+        else {
+            SetAsIt();
+        }
+
     }
 
     private void CheckForChair(Collider other) {

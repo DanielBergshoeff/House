@@ -1310,6 +1310,8 @@ MonoBehaviour:
   PlayerCam2: {fileID: 2053758043}
   CVC1: {fileID: 357823913}
   CVC2: {fileID: 1884975139}
+  NormalColor: {fileID: 2100000, guid: 26df403d11dd6354cbdbeef7949d61b5, type: 2}
+  ItColor: {fileID: 2100000, guid: 0b3f384bfd8f6504291f015813ef1102, type: 2}
 --- !u!1001 &551862513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6286,6 +6288,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3667110935582423170, guid: 3706cbefa93ea8f4e8123e437019fb34,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 26df403d11dd6354cbdbeef7949d61b5, type: 2}
+    - target: {fileID: 4065495464421903680, guid: 3706cbefa93ea8f4e8123e437019fb34,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b3f384bfd8f6504291f015813ef1102, type: 2}
     - target: {fileID: 4065495464421903682, guid: 3706cbefa93ea8f4e8123e437019fb34,
         type: 3}
       propertyPath: m_LocalPosition.x

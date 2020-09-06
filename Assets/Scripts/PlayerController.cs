@@ -35,10 +35,13 @@ public class PlayerController : MonoBehaviour
     private bool climbingCooldown = false;
     private GameObject glider;
     private bool dizzy = false;
+    private bool moving = false;
 
     private float jumpStartPos;
 
     private SkinnedMeshRenderer myRenderer;
+
+    private AudioSource myAudioSource;
 
 
     // Start is called before the first frame update
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>();
         myConstantForce = GetComponent<ConstantForce>();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     private void UnDizzy() {
@@ -142,8 +146,24 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Move() {
-        if (moveDir.magnitude < 0.1f || curtainRiding || chairing || climbing || dizzy)
+        if (moveDir.magnitude < 0.1f || curtainRiding || chairing || climbing || dizzy) {
+            moving = false;
+            myAudioSource.Stop();
             return;
+        }
+
+        if (!moving && !gliding && !jumping) {
+            myAudioSource.loop = true;
+            myAudioSource.clip = AudioManager.Instance.PlayerRun;
+            myAudioSource.Play();
+            moving = true;
+        }
+        else {
+            if(gliding || jumping) {
+                moving = false;
+                myAudioSource.Stop();
+            }
+        }
 
         Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
         targetDir = MyCamera.transform.TransformDirection(targetDir);

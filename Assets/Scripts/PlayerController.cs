@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public float BounceStrength = 2f;
     public InputActionAsset playerControls;
     public Animator PlayerAnimator;
+    public Camera MyCamera;
+    public bool TagIt;
+
 
     private InputAction movement;
     private InputAction jump;
@@ -35,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     private float jumpStartPos;
 
+    private SkinnedMeshRenderer myRenderer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +50,25 @@ public class PlayerController : MonoBehaviour
 
     private void UnDizzy() {
         dizzy = false;
+    }
+
+    public void SetAsIt() {
+        if(myRenderer == null)
+            myRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
+        TagIt = true;
+        myRenderer.material = GameManager.Instance.ItColor;
+        PlayerAnimator.SetTrigger("Dizzy");
+        dizzy = true;
+        Invoke("UnDizzy", 2f);
+    }
+
+    public void SetAsNotIt() {
+        if (myRenderer == null)
+            myRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
+        TagIt = false;
+        myRenderer.material = GameManager.Instance.NormalColor;
     }
 
     // Update is called once per frame
@@ -65,16 +89,16 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(transform.position, -transform.up, out hit1, 1f)) {
                 if (hit1.distance < 0.51f) {
                     //Landed
-                    if(jumpStartPos - transform.position.y > 1 && !gliding) {
+                    if (jumpStartPos - transform.position.y > 2f && !gliding) {
                         PlayerAnimator.SetTrigger("Dizzy");
                         dizzy = true;
                         Invoke("UnDizzy", 2f);
                     }
-                    jumping = false;
 
                     if (gliding) {
                         StopGliding();
                     }
+                    jumping = false;
 
                     if (!hit1.collider.CompareTag("BuildingBlock"))
                         return;
@@ -83,6 +107,7 @@ public class PlayerController : MonoBehaviour
                     if (bb2.Bouncy) {
                         Vector3 bounce = new Vector3(myRigidbody.velocity.x, Mathf.Clamp(-myRigidbody.velocity.y, 0f, 5f), myRigidbody.velocity.z) * BounceStrength;
                         myRigidbody.AddForce(bounce);
+                        PlayerAnimator.SetTrigger("Jump");
                     }
 
                     if (curtainRidingCooldown)
@@ -121,6 +146,9 @@ public class PlayerController : MonoBehaviour
             return;
 
         Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
+        targetDir = MyCamera.transform.TransformDirection(targetDir);
+        targetDir.y = 0.0f;
+
         transform.position = transform.position + targetDir * Time.deltaTime * MoveSpeed;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDir, Time.deltaTime * RotateSpeed, 0f);
         transform.rotation = Quaternion.LookRotation(newDirection);
@@ -172,15 +200,33 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         CheckForBB(collision);
         CheckForCurtain(collision);
+        CheckForPlayer(collision);
+    }
+
+    private void CheckForPlayer(Collision collision) {
+        if (!collision.collider.CompareTag("Player"))
+            return;
+
+        if (TagIt) {
+            SetAsNotIt();
+        }
+        else {
+            SetAsIt();
+        }
+
     }
 
     private void CheckForChair(Collider other) {
         if (!other.CompareTag("Chair") || chairingCooldown)
             return;
 
-        other.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(moveDir.x, 0f, moveDir.y) * 200f);
+        Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
+        targetDir = MyCamera.transform.TransformDirection(targetDir);
+        targetDir.y = 0.0f;
 
-        transform.position = other.transform.parent.position + Vector3.up * 1f;
+        other.transform.parent.GetComponent<Rigidbody>().AddForce(targetDir * 200f);
+
+        transform.position = other.transform.parent.position + Vector3.up * 2f;
         transform.parent = other.transform.parent;
 
         myRigidbody.isKinematic = true;

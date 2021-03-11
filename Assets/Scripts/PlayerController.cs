@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float RotateSpeed = 3f;
     public float JumpForce = 1f;
     public float BounceStrength = 2f;
+    [Tooltip("The speed at which the player will move while riding the chair, when it moves.")]
+    public float ChairingSpeed = 0f; //Lizzy code, no touchy!
     public InputActionAsset playerControls;
     public Animator PlayerAnimator;
     public Camera MyCamera;
@@ -240,13 +242,13 @@ public class PlayerController : MonoBehaviour
         if (!other.CompareTag("Chair") || chairingCooldown)
             return;
 
-        Vector3 targetDir = new Vector3(moveDir.x, 0f, moveDir.y);
+        Vector3 targetDir = new Vector3(moveDir.x* ChairingSpeed, 0f, moveDir.y* ChairingSpeed);
         targetDir = MyCamera.transform.TransformDirection(targetDir);
         targetDir.y = 0.0f;
 
         other.transform.parent.GetComponent<Rigidbody>().AddForce(targetDir * 200f);
 
-        transform.position = other.transform.parent.position + Vector3.up * 2f;
+        transform.position = other.transform.parent.position + Vector3.up * 1.1f; //if it aint +1, it dont work! Probs got stuck in another collider or sumthin
         transform.parent = other.transform.parent;
 
         myRigidbody.isKinematic = true;

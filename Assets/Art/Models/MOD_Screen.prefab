@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8623953236255265037}
   - component: {fileID: 6051266600529420429}
   - component: {fileID: 5379330946938185802}
+  - component: {fileID: 3908447726039385181}
   m_Layer: 0
   m_Name: MOD_Screen
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839873617114293183}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3, y: 0.47974798, z: -0.2593708}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3908447726039385181
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839873617114293183}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35699487, y: 0.6733552, z: 1.0079638}
+  m_Center: {x: 0.17849821, y: 0.3366776, z: -0.26102552}

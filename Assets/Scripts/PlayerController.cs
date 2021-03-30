@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Move();
 
         if (curtainRiding) {
@@ -106,6 +107,9 @@ public class PlayerController : MonoBehaviour
                     }
                     jumping = false;
 
+                    if (chairingCooldown)
+                        chairingCooldown = false;
+
                     if (!hit1.collider.CompareTag("BuildingBlock"))
                         return;
 
@@ -119,8 +123,7 @@ public class PlayerController : MonoBehaviour
                     if (curtainRidingCooldown)
                         curtainRidingCooldown = false;
 
-                    if (chairingCooldown)
-                        chairingCooldown = false;
+                    
 
                     if (climbingCooldown)
                         climbingCooldown = false;
@@ -241,6 +244,7 @@ public class PlayerController : MonoBehaviour
     private void CheckForChair(Collider other) {
         if (!other.CompareTag("Chair") || chairingCooldown)
             return;
+        Debug.Log("Chairing");
 
         Vector3 targetDir = new Vector3(moveDir.x* ChairingSpeed, 0f, moveDir.y* ChairingSpeed);
         targetDir = MyCamera.transform.TransformDirection(targetDir);

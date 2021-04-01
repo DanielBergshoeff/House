@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float BounceStrength = 2f;
     [Tooltip("The speed at which the player will move while riding the chair, when it moves.")]
     public float ChairingSpeed = 0f; //Lizzy code, no touchy!
+    public float dizzyHeight = 2f; //Lizzy code, no touchy!
     public InputActionAsset playerControls;
     public Animator PlayerAnimator;
     public Camera MyCamera;
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(transform.position, -transform.up, out hit1, 1f)) {
                 if (hit1.distance < 0.51f) {
                     //Landed
-                    if (jumpStartPos - transform.position.y > 2f && !gliding) {
+                    if (jumpStartPos - transform.position.y > dizzyHeight && !gliding) {
                         PlayerAnimator.SetTrigger("Dizzy");
                         dizzy = true;
                         Invoke("UnDizzy", 2f);

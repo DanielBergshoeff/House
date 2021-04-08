@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1983978365334596394}
   - component: {fileID: 6945177881254841715}
-  - component: {fileID: 4449906103771647983}
   m_Layer: 0
   m_Name: Camera BG
   m_TagString: Untagged
@@ -82,19 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4449906103771647983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005671853733184256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7125477121d873468be3c6134ef12dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeCamera: {fileID: 0}
 --- !u!1 &2620252858669301056
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +611,11 @@ PrefabInstance:
       propertyPath: MyCamera
       value: 
       objectReference: {fileID: 2620252860160604012}
+    - target: {fileID: 4065495464421903740, guid: 3706cbefa93ea8f4e8123e437019fb34,
+        type: 3}
+      propertyPath: ChairingSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3706cbefa93ea8f4e8123e437019fb34, type: 3}
 --- !u!4 &2032962375715364773 stripped

@@ -1,0 +1,138 @@
+title: start
+tags: 
+colorID: 7
+position: 897,136
+---
+Hey guys, welcome to the stream!
+[[0.2_normal]]
+===
+title: 0.1_gray
+tags: gray
+colorID: 0
+position: 671,623
+---
+Yoyo Yellow!
+[[1.1_normal]]
+[[0.2_gray]]
+[[0.3_gray]]
+===
+title: 0.2_gray
+tags: gray
+colorID: 0
+position: 894,622
+---
+Hey fellow blockheads
+[[1.1_normal]]
+[[0.1_gray]]
+[[0.3_gray]]
+===
+title: 0.3_gray
+tags: gray
+colorID: 0
+position: 1116,624
+---
+This is my favorite color!
+[[1.1_normal]]
+[[0.2_gray]]
+[[0.3_gray]]
+===
+title: 1.1_normal
+tags: 
+colorID: 8
+position: 896,978
+---
+Last time, we faced off against the final boss of this dungeon...
+[[2.2_happy]]
+[[2.1_sad]]
+===
+title: 2.2_happy
+tags: 
+colorID: 8
+position: 1037,1287
+---
+It was a pretty good one!
+[[2.1_red]]
+[[2.2_green]]
+[[2.3_gray]]
+===
+title: 2.1_sad
+tags: 
+colorID: 8
+position: 744,1288
+---
+But I lost because my gaming skills are just that crappy haha.
+[[2.1_red]]
+[[2.2_green]]
+[[2.3_gray]]
+===
+title: 0.2_normal
+tags: 
+colorID: 8
+position: 894,365
+---
+I hope you had a nice week.
+[[0.1_gray]]
+[[0.2_gray]]
+[[0.3_gray]]
+===
+title: 2.1_red
+tags: red
+colorID: 0
+position: 650,1526
+---
+seriously u so dumb died so much weak a$$ n00b
+[[3.1_sad]]
+[[3.2_happy]]
+[[3.3_normal]]
+===
+title: 2.2_green
+tags: green
+colorID: 0
+position: 889,1531
+---
+That fight was actually really fun!
+[[3.1_sad]]
+[[3.2_happy]]
+[[3.3_normal]]
+===
+title: 2.3_gray
+tags: gray
+colorID: 0
+position: 1129,1526
+---
+Yeah I remember.
+[[3.1_sad]]
+[[3.2_happy]]
+[[3.3_normal]]
+===
+title: 3.1_sad
+tags: 
+colorID: 8
+position: 650,1848
+---
+Well ehh, hope you guys had fun in your own way...
+[[4.1_normal]]
+===
+title: 3.2_happy
+tags: 
+colorID: 8
+position: 890,1851
+---
+Alrighty, thanks for coming everyone!
+[[4.1_normal]]
+===
+title: 3.3_normal
+tags: 
+colorID: 8
+position: 1129,1854
+---
+Alright guys, thanks for coming here,
+[[4.1_normal]]
+===
+title: 4.1_normal
+tags: 
+colorID: 7
+position: 890,2102
+---
+see you again next time.
+===

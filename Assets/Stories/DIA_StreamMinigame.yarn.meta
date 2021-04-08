@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: b7bd6368e8f32294cb8ae99478ff5e0c
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: en-US
+  stringIDs:
+  - DIA_StreamMinigame-start-0
+  - DIA_StreamMinigame-0.1_gray-1
+  - DIA_StreamMinigame-0.2_gray-2
+  - DIA_StreamMinigame-0.3_gray-3
+  - DIA_StreamMinigame-1.1_normal-4
+  - DIA_StreamMinigame-2.2_happy-5
+  - DIA_StreamMinigame-2.1_sad-6
+  - DIA_StreamMinigame-0.2_normal-7
+  - DIA_StreamMinigame-2.1_red-8
+  - DIA_StreamMinigame-2.2_green-9
+  - DIA_StreamMinigame-2.3_gray-10
+  - DIA_StreamMinigame-3.1_sad-11
+  - DIA_StreamMinigame-3.2_happy-12
+  - DIA_StreamMinigame-3.3_normal-13
+  - DIA_StreamMinigame-4.1_normal-14
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: b7bd6368e8f32294cb8ae99478ff5e0c,
+    type: 3}
+  localizations: []

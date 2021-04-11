@@ -389,6 +389,11 @@ PrefabInstance:
       propertyPath: minigameManager
       value: 
       objectReference: {fileID: 717040882}
+    - target: {fileID: 1972443210655296830, guid: e55ccf3ef5b6435468d7e568faf7aca9,
+        type: 3}
+      propertyPath: commentNature
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3052314929249101631, guid: e55ccf3ef5b6435468d7e568faf7aca9,
         type: 3}
       propertyPath: slider
@@ -449,10 +454,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6258486209958278926, guid: e55ccf3ef5b6435468d7e568faf7aca9,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6258486210179762807, guid: e55ccf3ef5b6435468d7e568faf7aca9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258486210837213218, guid: e55ccf3ef5b6435468d7e568faf7aca9,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6258486210926054744, guid: e55ccf3ef5b6435468d7e568faf7aca9,
         type: 3}
@@ -464,10 +479,20 @@ PrefabInstance:
       propertyPath: commentNature
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6258486210926054744, guid: e55ccf3ef5b6435468d7e568faf7aca9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6258486210926054747, guid: e55ccf3ef5b6435468d7e568faf7aca9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258486210926054750, guid: e55ccf3ef5b6435468d7e568faf7aca9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e55ccf3ef5b6435468d7e568faf7aca9, type: 3}

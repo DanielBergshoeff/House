@@ -17,6 +17,12 @@ public class StreamComments : MonoBehaviour
     [Tooltip("Set how long the comment will appear on screen for.")]
     public float lifetime = 4;
 
+    TextMeshProUGUI text;
+
+    private void Awake() {
+        ColorComment();
+    }
+
     private void Update()
     {
         //count down time so that the comment will disappear at some point 
@@ -24,12 +30,48 @@ public class StreamComments : MonoBehaviour
 
         if (lifetime <= 0)
         {
-            if (commentNature == Nature.Bad)
+            //subtract for bad
+            if (commentNature == Nature.Bad) {
+                minigameManager.CalcHP(-minigameManager.badCommentValue);
+                Destroy(gameObject);
+            }
+
+            //add for good
+            if (commentNature == Nature.Good) {
+                minigameManager.CalcHP(minigameManager.goodCommentValue);
+                Destroy(gameObject);
+            }
+
+            //subtract for ruminate
+            if (commentNature == Nature.Ruminate)
             {
-                minigameManager.CalcHP(-2);
+                minigameManager.CalcHP(-minigameManager.ruminateValue);
+                Destroy(gameObject);
+            }
+
+            //add for counter
+            if (commentNature == Nature.Counter)
+            {
+                minigameManager.CalcHP(minigameManager.counterValue);
                 Destroy(gameObject);
             }
         }
 
+    }
+
+    void ColorComment() {
+
+        //Make red
+        if (commentNature == Nature.Bad || commentNature == Nature.Ruminate)
+        {
+            text = GetComponentInChildren<TextMeshProUGUI>();
+            text.color = Color.red;
+        }   
+
+        //make green
+        if (commentNature == Nature.Good || commentNature == Nature.Counter) {
+            text = GetComponentInChildren<TextMeshProUGUI>();
+            text.color = Color.green;
+        }
     }
 }

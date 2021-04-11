@@ -28,35 +28,34 @@ public class StreamComments : MonoBehaviour
         //count down time so that the comment will disappear at some point 
         lifetime -= 1 * Time.deltaTime;
 
-        if (lifetime <= 0)
-        {
+        if (lifetime <= 0) {
             //subtract for bad
-            if (commentNature == Nature.Bad) {
+            if (commentNature == Nature.Bad)
+            {
                 minigameManager.CalcHP(-minigameManager.badCommentValue);
                 Destroy(gameObject);
             }
+        }
+    }
 
-            //add for good
-            if (commentNature == Nature.Good) {
-                minigameManager.CalcHP(minigameManager.goodCommentValue);
-                Destroy(gameObject);
-            }
+    public void Ban() {
+        //ban the bad comment
+        if (commentNature == Nature.Bad) {
+            Destroy(gameObject);
+        }
+    }
 
-            //subtract for ruminate
-            if (commentNature == Nature.Ruminate)
-            {
-                minigameManager.CalcHP(-minigameManager.ruminateValue);
-                Destroy(gameObject);
-            }
-
-            //add for counter
-            if (commentNature == Nature.Counter)
-            {
-                minigameManager.CalcHP(minigameManager.counterValue);
-                Destroy(gameObject);
-            }
+    public void Highlight() {
+        //add HP for good comments when you highlighted them
+        if (commentNature == Nature.Good) {
+            minigameManager.CalcHP(minigameManager.goodCommentValue);
+            Destroy(gameObject);
         }
 
+        if (commentNature == Nature.Counter) {
+            minigameManager.CalcHP(minigameManager.counterValue);
+            Destroy(gameObject);
+        }
     }
 
     void ColorComment() {

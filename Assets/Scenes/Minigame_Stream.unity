@@ -121,6 +121,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &36732681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1972443210655296830, guid: e55ccf3ef5b6435468d7e568faf7aca9,
+    type: 3}
+  m_PrefabInstance: {fileID: 9047934211284394880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6318ffa74844ef54bb63ccd6048e2077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &272239568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6258486210926054744, guid: e55ccf3ef5b6435468d7e568faf7aca9,
+    type: 3}
+  m_PrefabInstance: {fileID: 9047934211284394880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6318ffa74844ef54bb63ccd6048e2077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &717040882 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3052314929249101631, guid: e55ccf3ef5b6435468d7e568faf7aca9,
@@ -459,10 +483,20 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6258486210179762802, guid: e55ccf3ef5b6435468d7e568faf7aca9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6258486210179762807, guid: e55ccf3ef5b6435468d7e568faf7aca9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 36732681}
+    - target: {fileID: 6258486210179762807, guid: e55ccf3ef5b6435468d7e568faf7aca9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Highlight
       objectReference: {fileID: 0}
     - target: {fileID: 6258486210837213218, guid: e55ccf3ef5b6435468d7e568faf7aca9,
         type: 3}
@@ -488,6 +522,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 272239568}
+    - target: {fileID: 6258486210926054747, guid: e55ccf3ef5b6435468d7e568faf7aca9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Ban
       objectReference: {fileID: 0}
     - target: {fileID: 6258486210926054750, guid: e55ccf3ef5b6435468d7e568faf7aca9,
         type: 3}

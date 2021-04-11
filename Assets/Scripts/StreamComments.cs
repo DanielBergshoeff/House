@@ -22,17 +22,14 @@ public class StreamComments : MonoBehaviour
         //count down time so that the comment will disappear at some point 
         lifetime -= 1 * Time.deltaTime;
 
-        DoThing();
-        
-    }
+        if (lifetime <= 0)
+        {
+            if (commentNature == Nature.Bad)
+            {
+                minigameManager.CalcHP(-2);
+                Destroy(gameObject);
+            }
+        }
 
-    //int DoThing() {
-    //    if (lifetime <= 0)
-    //    {
-    //        if (commentNature == Nature.Bad)
-    //        {
-    //            minigameManager.CalcHP(5);
-    //        }
-    //    }
-    //}
+    }
 }

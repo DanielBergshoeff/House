@@ -27,7 +27,7 @@ public class ChairSurfing : MonoBehaviour
         //set active CM cam from one to the other
         //or move transforms?
         Debug.Log("initiating SwitchCam()");
-        oldcam.transform.position = new Vector3(999, 999, 999);
+        //oldcam
 
 
     }

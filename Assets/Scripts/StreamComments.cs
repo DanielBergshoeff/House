@@ -21,6 +21,7 @@ public class StreamComments : MonoBehaviour
 
     private void Awake() {
         ColorComment();
+        lifetime = minigameManager.lifetime;
     }
 
     private void Update()
@@ -33,7 +34,7 @@ public class StreamComments : MonoBehaviour
             if (commentNature == Nature.Bad)
             {
                 minigameManager.CalcHP(-minigameManager.badCommentValue);
-                Destroy(gameObject);
+                Destroy(this); //this removes component. gameObject removes the entire object
             }
         }
     }

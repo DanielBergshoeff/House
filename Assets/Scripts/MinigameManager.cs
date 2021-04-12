@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class MinigameManager : MonoBehaviour
 {
+    [Tooltip("Insert whatever parent directly holds the 2 game objects that are Yellow's sentences")]
+    public GameObject sentencesParent;
+    
     public Slider slider;
 
     public int health = 10;
@@ -14,6 +17,8 @@ public class MinigameManager : MonoBehaviour
     public int goodCommentValue = 1;
     public int ruminateValue = 2;
     public int counterValue = 2;
+    [Tooltip("How long sentences should show for")]
+    public float lifetime = 5;
 
     public void Awake() {
         //this makes sure you start the minigame at max health
@@ -32,4 +37,11 @@ public class MinigameManager : MonoBehaviour
         //sets the value or referenced slider to current health
         slider.value = health;
     }
+
+
+
+
+
+
+    //public void StartDialogue() => StartDialogue(startNode);
 }

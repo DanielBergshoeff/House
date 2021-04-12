@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-//this is where I define the amount of penalty points or HP there are.
+using TMPro;
 
 public class MinigameManager : MonoBehaviour
 {
-    [Tooltip("Insert whatever parent directly holds the 2 game objects that are Yellow's sentences")]
-    public GameObject sentencesParent;
+    [Tooltip("Insert whatever parent directly holds the 2 game objects that are Yellow's sentences.")]
+    public GameObject yellowsComments;
+    [Tooltip("Insert the parent that holds all the viewers comments.")]
+    public GameObject viewerComments;
     
     public Slider slider;
 
@@ -17,13 +18,27 @@ public class MinigameManager : MonoBehaviour
     public int goodCommentValue = 1;
     public int ruminateValue = 2;
     public int counterValue = 2;
+
     [Tooltip("How long sentences should show for")]
     public float lifetime = 5;
+    bool runLifetime = false;
 
-    public void Awake() {
+    int phase = 0;
+    bool inPhase = false;
+
+    public void Awake()
+    {
         //this makes sure you start the minigame at max health
         slider.maxValue = health;
         slider.value = health;
+
+        //empty all user comment buttons
+        
+        int childCount = viewerComments.transform.childCount;
+        Debug.Log("Viewer comments has " + childCount + " children.");
+        for (int i = 0; i < childCount; i++) {
+            viewerComments.transform.GetChild(i).transform.GetComponentInChildren<TextMeshProUGUI>().text = "";
+        }
     }
 
     public void CalcHP(int value) { //recalculate health using outcome of a comment

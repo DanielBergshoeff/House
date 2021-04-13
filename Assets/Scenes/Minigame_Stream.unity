@@ -2524,6 +2524,7 @@ MonoBehaviour:
   counterValue: 2
   positiveColor: {r: 0, g: 0.6886792, b: 0.011477976, a: 1}
   negativeColor: {r: 1, g: 0.08551968, b: 0, a: 1}
+  neutralColor: {r: 0, g: 0, b: 0, a: 1}
   lifetime: 5
   allComments: []
 --- !u!114 &7408208753528966846

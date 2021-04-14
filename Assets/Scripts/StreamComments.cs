@@ -15,21 +15,21 @@ public class StreamComments : MonoBehaviour
     //optimisation tip: can we prevent every sentence having to make a new enum set?
 
     [Tooltip("Set how long the comment will appear on screen for.")]
-    public float lifetime = 4;
+    public float remainingLifetime = 4;
 
     TextMeshProUGUI text;
 
     private void Awake() {
         ColorComment();
-        lifetime = minigameManager.lifetime;
+        remainingLifetime = minigameManager.remainingLifetime;
     }
 
     private void Update()
     {
         //count down time so that the comment will disappear at some point 
-        lifetime -= 1 * Time.deltaTime;
+        remainingLifetime -= 1 * Time.deltaTime;
 
-        if (lifetime <= 0) {
+        if (remainingLifetime <= 0) {
             //subtract for bad
             if (commentNature == Nature.Bad)
             {

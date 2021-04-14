@@ -1961,7 +1961,7 @@ MonoBehaviour:
   minigameManager: {fileID: 3052314929249101631, guid: e55ccf3ef5b6435468d7e568faf7aca9,
     type: 3}
   commentNature: 1
-  lifetime: 4
+  remainingLifetime: 4
 --- !u!224 &3119345510269873881
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2526,6 +2526,7 @@ MonoBehaviour:
   negativeColor: {r: 1, g: 0.08551968, b: 0, a: 1}
   neutralColor: {r: 0, g: 0, b: 0, a: 1}
   lifetime: 5
+  remainingLifetime: 0
   allComments: []
 --- !u!114 &7408208753528966846
 MonoBehaviour:
@@ -2541,7 +2542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameManager: {fileID: 6326634418093311167}
   commentNature: 0
-  lifetime: 4
+  remainingLifetime: 4
 --- !u!1 &8505978991529150702
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,6 +29,7 @@ public class MinigameManager : MonoBehaviour
 
     [Tooltip("How long sentences should show for")]
     public float lifetime = 5;
+    public float remainingLifetime;
     bool runLifetime = false;
 
     public Comment[] allComments;
@@ -38,6 +39,8 @@ public class MinigameManager : MonoBehaviour
         //this makes sure you start the minigame at max health
         slider.maxValue = health;
         slider.value = health;
+
+        remainingLifetime = lifetime;
 
         //empty all user comment buttons for a clean start
         int childCountA = viewerComments.transform.childCount;
@@ -55,15 +58,19 @@ public class MinigameManager : MonoBehaviour
             StartPhase();
         }
 
-        if (lifetime <= 0) {
-            EndPhase();
+        if (remainingLifetime <= 0) {
+            EndPhase(); //note the phase number gets incremented here
         }
 
         if (runLifetime) {
-            lifetime -= 1 * Time.deltaTime;
+            remainingLifetime -= 1 * Time.deltaTime;
         }
     }
     public void StartPhase() {
+        remainingLifetime = lifetime;
+        
+        //have Yellows comments roll in
+        yellowsComments.GetComponent<Animator>().enabled = true;
 
         //fill yellows comments with scriptable objects
         int childCountA = yellowsComments.transform.childCount;
@@ -89,8 +96,6 @@ public class MinigameManager : MonoBehaviour
                     }
 
                     else { yellowsComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>().color = neutralColor; }
-
-                    Debug.Log("yellowsComments child " + i + " is " + yellowsComments.transform.GetChild(i - 1).name);
                 }
             }          
         }
@@ -108,20 +113,38 @@ public class MinigameManager : MonoBehaviour
 
                     //set text
                     viewerComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>().text = allComments[j].Text;
-                    Debug.Log("viewerComments child " + i + " is " + viewerComments.transform.GetChild(i - 1).name);
                 }
             }
         }
 
         inPhase = true; //let script know we are in a phase
-        runLifetime = true; //allow the starting of the lifetime counter
+        runLifetime = true; //allow the starting of the remainingLifetime counter
         //looking for a yellows or viewers comments follows the same algorithm. Which means there is room for optimization.
     }
 
     public void EndPhase() {
-        //wipe yellows comments
+
+        //have Yellows comments animation disabled, so it will play next time it gets enabled, holding new text.
+        yellowsComments.GetComponent<Animator>().enabled = false;
+        Debug.Log("Animation component state is " + yellowsComments.GetComponent<Animator>().isActiveAndEnabled);
+
+        //wipe all yellows comment buttons. Viewer comments are simply refilled with empty "".
+        int childCountA = yellowsComments.transform.childCount;
+        for (int i = 0; i < childCountA; i++)
+        {
+            yellowsComments.transform.GetChild(i).transform.GetComponentInChildren<TextMeshProUGUI>().text = "";
+        }
+
+        //wipe all user comment buttons
+        int childCountB = viewerComments.transform.childCount;
+        for (int i = 0; i < childCountB; i++)
+        {
+            viewerComments.transform.GetChild(i).transform.GetComponentInChildren<TextMeshProUGUI>().text = "";
+        }
+
         runLifetime = false;
         inPhase = false;
+        phase += 1;
     }
     public void CalcHP(int value) { //recalculate health using outcome of a comment
         health += value;

@@ -10,6 +10,7 @@ public class MinigameManager : MonoBehaviour
     public GameObject yellowsComments;
     [Tooltip("Insert the parent that holds all the viewers comments.")]
     public GameObject viewerComments;
+    public GameObject viewersCommentCover;
     
     public Slider slider;
     public int health = 10;
@@ -34,13 +35,10 @@ public class MinigameManager : MonoBehaviour
     bool runLifetime = false;
 
     public Comment[] allComments;
-    public float firstViewerCommentDelay = 1f;
-    public float consecutiveViewerCommentDelay = 0.25f;
 
     public void Awake()
     {
-        Debug.Log(positiveColor + " " + negativeColor + " " + neutralColor);
-
+        
         //this makes sure you start the minigame at max health
         slider.maxValue = health;
         slider.value = health;
@@ -77,7 +75,8 @@ public class MinigameManager : MonoBehaviour
     }
     public void StartPhase() {
         //have Yellows comments start
-        yellowsComments.GetComponent<Animator>().enabled = true;
+        yellowsComments.GetComponent<Animator>().SetBool("slideIn", true);
+        viewersCommentCover.GetComponent<Animator>().SetBool("reveal", true);
         
         remainingLifetime = lifetime;
 
@@ -97,7 +96,6 @@ public class MinigameManager : MonoBehaviour
                     //now color it
                     if (currentComment.nature == Comment.Nature.Bad || currentComment.nature == Comment.Nature.Ruminate) { //if current comment is negative
                         currentContainer.color = negativeColor;
-                        Debug.Log("Is bad or ruminate");
                     }
 
                     if (currentComment.nature == Comment.Nature.Good || currentComment.nature == Comment.Nature.Counter)
@@ -110,11 +108,8 @@ public class MinigameManager : MonoBehaviour
                         currentContainer.color = neutralColor;
                     }
 
-
                     //set text
                     currentContainer.text = allComments[j].Text;
-                    Debug.Log("Speech bubble " + currentContainer.name + " is " + currentContainer.color + " and nature is " + currentComment.nature);
-                    
                 }
             }          
         }
@@ -142,10 +137,6 @@ public class MinigameManager : MonoBehaviour
 
     public void EndPhase() {
 
-        //have Yellows comments animation disabled, so it will play next time it gets enabled, holding new text.
-        yellowsComments.GetComponent<Animator>().enabled = false;
-        Debug.Log("Animation component state is " + yellowsComments.GetComponent<Animator>().isActiveAndEnabled);
-
         //wipe all yellows comment buttons. Viewer comments are simply refilled with empty "".
         int childCountA = yellowsComments.transform.childCount;
         for (int i = 0; i < childCountA; i++)
@@ -159,7 +150,11 @@ public class MinigameManager : MonoBehaviour
         {
             viewerComments.transform.GetChild(i).transform.GetComponentInChildren<TextMeshProUGUI>().text = "";
         }
-   
+        
+        //have Yellows comments animation disabled, so it will play next time it gets enabled, holding new text.
+        yellowsComments.GetComponent<Animator>().SetBool("slideIn", false);
+        viewersCommentCover.GetComponent<Animator>().SetBool("reveal", false);
+
         runLifetime = false;
         inPhase = false;
         phase += 1;

@@ -39,6 +39,8 @@ public class MinigameManager : MonoBehaviour
 
     public void Awake()
     {
+        Debug.Log(positiveColor + " " + negativeColor + " " + neutralColor);
+
         //this makes sure you start the minigame at max health
         slider.maxValue = health;
         slider.value = health;
@@ -81,35 +83,44 @@ public class MinigameManager : MonoBehaviour
 
         //fill yellows comments with scriptable objects
         int childCountA = yellowsComments.transform.childCount;
-        Debug.Log("yellowComments has " + childCountA + " children");
-        for (int i = 0; i < childCountA + 1; i++)//trick question: children counting start from 1. allComment[] starts from 0, hence the 'childCountA+1'
+        for (int i = 0; i < childCountA + 1; i++)//the containter child we are looking at
+            //trick question: children counting start from 1. allComment[] starts from 0, hence the 'childCountA+1'
         {
-            
             //find the comment we need
-            for (int j = 0; j < allComments.Length; j++) {
+            for (int j = 0; j < allComments.Length; j++) {//j = the comment we are looking at
                 if (allComments[j].name.Contains("Yellow") && allComments[j].name.StartsWith(phase + "." + i)) {
-                    
-                    //set text
-                    yellowsComments.transform.GetChild(i-1).transform.GetComponentInChildren<TextMeshProUGUI>().text = allComments[j].Text;
+
+                    TextMeshProUGUI currentContainer = yellowsComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>();
+                    Comment currentComment = allComments[j];
+
 
                     //now color it
-                    if (allComments[j].nature == Comment.Nature.Bad || allComments[j].nature == Comment.Nature.Ruminate) {
-                        yellowsComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>().color = negativeColor;
+                    if (currentComment.nature == Comment.Nature.Bad || currentComment.nature == Comment.Nature.Ruminate) { //if current comment is negative
+                        currentContainer.color = negativeColor;
+                        Debug.Log("Is bad or ruminate");
                     }
 
-                    if (allComments[j].nature == Comment.Nature.Good || allComments[j].nature == Comment.Nature.Counter)
+                    if (currentComment.nature == Comment.Nature.Good || currentComment.nature == Comment.Nature.Counter)
                     {
-                        yellowsComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>().color = positiveColor;
+                        currentContainer.color = positiveColor;
                     }
 
-                    else { yellowsComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>().color = neutralColor; }
+                    if (currentComment.nature == Comment.Nature.Neutral)
+                    {
+                        currentContainer.color = neutralColor;
+                    }
+
+
+                    //set text
+                    currentContainer.text = allComments[j].Text;
+                    Debug.Log("Speech bubble " + currentContainer.name + " is " + currentContainer.color + " and nature is " + currentComment.nature);
+                    
                 }
             }          
         }
 
         //add viewer comments with scriptable objects. push up (push back?) previous if max length has been reached
         int childCountB = viewerComments.transform.childCount;
-        Debug.Log("viewerComments has " + childCountB + " children");
         for (int i = 0; i < childCountB + 1; i++)
         {
             //find the comment we need

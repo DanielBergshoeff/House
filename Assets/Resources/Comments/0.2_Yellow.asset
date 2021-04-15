@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speaker: 0
   Phase: 0
-  nature: 0
+  nature: 2
   Text: I hope you had a nice week.

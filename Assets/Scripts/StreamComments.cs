@@ -34,7 +34,7 @@ public class StreamComments : MonoBehaviour
             if (commentNature == Nature.Bad)
             {
                 minigameManager.CalcHP(-minigameManager.badCommentValue);
-                Destroy(this); //this removes component. gameObject removes the entire object
+                //Destroy(this); //this removes component. gameObject removes the entire object
             }
         }
     }
@@ -42,7 +42,7 @@ public class StreamComments : MonoBehaviour
     public void Ban() {
         //ban the bad comment
         if (commentNature == Nature.Bad) {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
@@ -50,12 +50,12 @@ public class StreamComments : MonoBehaviour
         //add HP for good comments when you highlighted them
         if (commentNature == Nature.Good) {
             minigameManager.CalcHP(minigameManager.goodCommentValue);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         if (commentNature == Nature.Counter) {
             minigameManager.CalcHP(minigameManager.counterValue);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 

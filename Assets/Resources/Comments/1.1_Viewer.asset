@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7785c01362190d44a70f27ab1bb5233, type: 3}
-  m_Name: 2.4_Viewer
+  m_Name: 1.1_Viewer
   m_EditorClassIdentifier: 
   speaker: 1
   Phase: 2
-  nature: 3
-  Text: Sure Yellow died a lot. Though be that as it may, Yellow still made sure
-    we had a good time :)
+  nature: 0
+  Text: I really love that boss' design <3

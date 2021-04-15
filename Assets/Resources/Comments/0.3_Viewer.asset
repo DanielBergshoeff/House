@@ -15,4 +15,4 @@ MonoBehaviour:
   speaker: 1
   Phase: 0
   nature: 0
-  Text: 'User: This is my favorite color!'
+  Text: This is my favorite color!

@@ -6,6 +6,7 @@ using TMPro;
 
 public class MinigameManager : MonoBehaviour
 {
+    [Header("Comment containers")]
     [Tooltip("Insert whatever parent directly holds the 2 game objects that are Yellow's sentences.")]
     public GameObject yellowsComments;
     [Tooltip("Insert the parent that holds all the viewers comments.")]
@@ -15,6 +16,7 @@ public class MinigameManager : MonoBehaviour
     public Slider slider;
     public int health = 10;
 
+    [Header("Comment values")]
     public int badCommentValue = 1; //for some reason, negative numbers become positive when bounced between scripts. The - is now thrown in the StreamComments script.
     public int goodCommentValue = 1;
     public int ruminateValue = 2;
@@ -25,9 +27,11 @@ public class MinigameManager : MonoBehaviour
     public Color negativeColor;
     public Color neutralColor;
 
+    [Header("Minigame values")]
     public int phase = 0;
     public int phaseAmount;
     public bool inPhase = false;
+    private int _phasePoints;
 
     [Tooltip("How long sentences should show for")]
     public float lifetime = 5;
@@ -114,6 +118,7 @@ public class MinigameManager : MonoBehaviour
             }          
         }
 
+
         //add viewer comments with scriptable objects. push up (push back?) previous if max length has been reached
         int childCountB = viewerComments.transform.childCount;
         for (int i = 0; i < childCountB + 1; i++)
@@ -125,7 +130,7 @@ public class MinigameManager : MonoBehaviour
                 {
 
                     //set text
-                    viewerComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>().text = allComments[j].Text;
+                    viewerComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>().text = "user: " + allComments[j].Text;
                 }
             }
         }
@@ -160,7 +165,7 @@ public class MinigameManager : MonoBehaviour
         phase += 1;
     }
     public void CalcHP(int value) { //recalculate health using outcome of a comment
-        health += value;
+        health += _phasePoints;
         Debug.Log("Lost/gained " + value + " health. Current health: " + health);
         //update the health bar accordingly
         SetHeath();

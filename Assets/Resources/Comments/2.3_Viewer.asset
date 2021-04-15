@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7785c01362190d44a70f27ab1bb5233, type: 3}
   m_Name: 2.3_Viewer
   m_EditorClassIdentifier: 
-  speaker: 0
+  speaker: 1
   Phase: 2
-  nature: 2
-  Text: seriously u so dumb died so much weak a$$ n00b
+  nature: 3
+  Text: Sure Yellow died a lot. Though be that as it may, Yellow still made sure
+    we had a good time :)

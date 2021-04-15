@@ -1287,8 +1287,8 @@ Camera:
   m_GameObject: {fileID: 2013008818}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 0.8480289, b: 0.6273585, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2194,7 +2194,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3143840036934779356}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 60341e699b97e864d9732e516b5df66b, type: 2}
   m_CullingMode: 0
@@ -2525,9 +2525,14 @@ MonoBehaviour:
   positiveColor: {r: 0, g: 0.6886792, b: 0.011477976, a: 1}
   negativeColor: {r: 1, g: 0.08551968, b: 0, a: 1}
   neutralColor: {r: 0, g: 0, b: 0, a: 1}
+  phase: 0
+  phaseAmount: 4
+  inPhase: 0
   lifetime: 5
   remainingLifetime: 0
   allComments: []
+  firstViewerCommentDelay: 0
+  consecutiveViewerCommentDelay: 0
 --- !u!114 &7408208753528966846
 MonoBehaviour:
   m_ObjectHideFlags: 0

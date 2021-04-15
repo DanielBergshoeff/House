@@ -24,8 +24,9 @@ public class MinigameManager : MonoBehaviour
     public Color negativeColor;
     public Color neutralColor;
 
-    int phase = 0;
-    bool inPhase = false;
+    public int phase = 0;
+    public int phaseAmount;
+    public bool inPhase = false;
 
     [Tooltip("How long sentences should show for")]
     public float lifetime = 5;
@@ -33,6 +34,8 @@ public class MinigameManager : MonoBehaviour
     bool runLifetime = false;
 
     public Comment[] allComments;
+    public float firstViewerCommentDelay = 1f;
+    public float consecutiveViewerCommentDelay = 0.25f;
 
     public void Awake()
     {
@@ -54,7 +57,7 @@ public class MinigameManager : MonoBehaviour
 
     public void Update()
     {
-        if (!inPhase) {
+        if (!inPhase && phase != phaseAmount + 1) {
             StartPhase();
         }
 
@@ -65,12 +68,16 @@ public class MinigameManager : MonoBehaviour
         if (runLifetime) {
             remainingLifetime -= 1 * Time.deltaTime;
         }
+
+        if (phase > phaseAmount) {
+            EndMinigame();
+        }
     }
     public void StartPhase() {
-        remainingLifetime = lifetime;
-        
-        //have Yellows comments roll in
+        //have Yellows comments start
         yellowsComments.GetComponent<Animator>().enabled = true;
+        
+        remainingLifetime = lifetime;
 
         //fill yellows comments with scriptable objects
         int childCountA = yellowsComments.transform.childCount;
@@ -141,7 +148,7 @@ public class MinigameManager : MonoBehaviour
         {
             viewerComments.transform.GetChild(i).transform.GetComponentInChildren<TextMeshProUGUI>().text = "";
         }
-
+   
         runLifetime = false;
         inPhase = false;
         phase += 1;
@@ -156,5 +163,11 @@ public class MinigameManager : MonoBehaviour
     void SetHeath() {
         //sets the value or referenced slider to current health
         slider.value = health;
+    }
+
+    void EndMinigame() {
+        yellowsComments.SetActive(false);
+        viewerComments.SetActive(false);
+        Debug.Log("Minigame has ended!");
     }
 }

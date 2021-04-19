@@ -78,7 +78,7 @@ public class MinigameManager : MonoBehaviour
         }
     }
     public void StartPhase() {
-        //have Yellows comments start
+        //start animations
         yellowsComments.GetComponent<Animator>().SetBool("slideIn", true);
         viewersCommentCover.GetComponent<Animator>().SetBool("reveal", true);
         
@@ -141,6 +141,14 @@ public class MinigameManager : MonoBehaviour
     }
 
     public void EndPhase() {
+
+        //check for negative comments in yellows comments, doesnt work
+        for (int i = 0; i < 2; i++) {
+            //if the child, starting from 1 (hence i+1) is a negative comment...
+            if (yellowsComments.transform.GetChild((i)).GetComponentInChildren<TextMeshProUGUI>().color == negativeColor) {
+                _phasePoints -= 1; //it does not calc rumination points now...
+            }
+        }
 
         //wipe all yellows comment buttons. Viewer comments are simply refilled with empty "".
         int childCountA = yellowsComments.transform.childCount;

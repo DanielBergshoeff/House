@@ -2255,7 +2255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yellow's comment
+  m_text: Insert Yellow's comment please
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2300,7 +2300,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 24
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2324,12 +2324,12 @@ MonoBehaviour:
   m_margin: {x: 10, y: 10, z: 10, w: 10}
   m_textInfo:
     textComponent: {fileID: 3119345509316924558}
-    characterCount: 16
+    characterCount: 30
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2378,6 +2378,7 @@ GameObject:
   - component: {fileID: 3119345509404764665}
   - component: {fileID: 3119345509404764662}
   - component: {fileID: 3119345509404764663}
+  - component: {fileID: 3119345509404764659}
   m_Layer: 5
   m_Name: SEN_Neutral Variant
   m_TagString: Untagged
@@ -2385,6 +2386,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3119345509404764659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119345509404764658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36da389ad889bae4298c39b4e6f8be15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultComment: {fileID: 11400000, guid: 5dbfdee544de62d4d93c1965597e7b1c, type: 2}
+  emptyComment: {fileID: 11400000, guid: d480747093f017446b89eb781c0146e6, type: 2}
+  minigameManager: {fileID: 6326634418093311167}
 --- !u!224 &3119345509404764661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2532,7 +2548,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yellow's comment
+  m_text: Insert Yellow's comment please
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2577,7 +2593,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 24
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2601,12 +2617,12 @@ MonoBehaviour:
   m_margin: {x: 10, y: 10, z: 10, w: 10}
   m_textInfo:
     textComponent: {fileID: 3119345510047290274}
-    characterCount: 16
+    characterCount: 30
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2774,6 +2790,7 @@ GameObject:
   - component: {fileID: 3119345510269873877}
   - component: {fileID: 3119345510269873882}
   - component: {fileID: 3119345510269873883}
+  - component: {fileID: 3119345510269873887}
   m_Layer: 5
   m_Name: SEN_Neutral Variant (1)
   m_TagString: Untagged
@@ -2781,6 +2798,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3119345510269873887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119345510269873886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36da389ad889bae4298c39b4e6f8be15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultComment: {fileID: 11400000, guid: e0cfe46d3bf00d847a4fb8a3655a6eb9, type: 2}
+  emptyComment: {fileID: 11400000, guid: d480747093f017446b89eb781c0146e6, type: 2}
+  minigameManager: {fileID: 6326634418093311167}
 --- !u!4 &3123449599061846122
 Transform:
   m_ObjectHideFlags: 0
@@ -3212,6 +3244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832c09fcfa8ad1341adecb615115806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button1: {fileID: 3119345509404764658}
+  button2: {fileID: 3119345510269873886}
   yellowsComments: {fileID: 3143840036934779356}
   viewerComments: {fileID: 1621791233}
   viewersCommentCover: {fileID: 1501977738}

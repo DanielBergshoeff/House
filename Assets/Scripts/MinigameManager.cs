@@ -7,6 +7,8 @@ using TMPro;
 public class MinigameManager : MonoBehaviour
 {
     [Header("Comment containers")]
+    public GameObject button1;
+    public GameObject button2;
     [Tooltip("Insert whatever parent directly holds the 2 game objects that are Yellow's sentences.")]
     public GameObject yellowsComments;
     [Tooltip("Insert the parent that holds all the viewers comments.")]
@@ -31,7 +33,7 @@ public class MinigameManager : MonoBehaviour
     public int phase = 0;
     public int phaseAmount;
     public bool inPhase = false;
-    private int _phasePoints;
+    private int _phasePoints = 0;
 
     [Tooltip("How long sentences should show for")]
     public float lifetime = 5;
@@ -42,18 +44,11 @@ public class MinigameManager : MonoBehaviour
 
     public void Awake()
     {
-        
         //this makes sure you start the minigame at max health
         slider.maxValue = health;
         slider.value = health;
 
         remainingLifetime = lifetime;
-
-        //empty all user comment buttons for a clean start
-        int childCountA = viewerComments.transform.childCount;
-        for (int i = 0; i < childCountA; i++) {
-            viewerComments.transform.GetChild(i).transform.GetComponentInChildren<TextMeshProUGUI>().text = "";
-        }
 
         //access all comments
         allComments = Resources.LoadAll<Comment>("Comments"); //the "" content must match the folder within the resources folder
@@ -78,46 +73,32 @@ public class MinigameManager : MonoBehaviour
         }
     }
     public void StartPhase() {
-        //have Yellows comments start
+        //have all comments show themselves
         yellowsComments.GetComponent<Animator>().SetBool("slideIn", true);
         viewersCommentCover.GetComponent<Animator>().SetBool("reveal", true);
         
         remainingLifetime = lifetime;
+        //button1.GetComponent<StreamButton>().GetComponentInChildren<StreamButton>().EmptyComment();
 
-        //fill yellows comments with scriptable objects
-        int childCountA = yellowsComments.transform.childCount;
-        for (int i = 0; i < childCountA + 1; i++)//the containter child we are looking at
-            //trick question: children counting start from 1. allComment[] starts from 0, hence the 'childCountA+1'
+        //find comment for button 1
+        for (int i = 0; i < allComments.Length; i++)
         {
-            //find the comment we need
-            for (int j = 0; j < allComments.Length; j++) {//j = the comment we are looking at
-                if (allComments[j].name.Contains("Yellow") && allComments[j].name.StartsWith(phase + "." + i)) {
-
-                    TextMeshProUGUI currentContainer = yellowsComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>();
-                    Comment currentComment = allComments[j];
-
-
-                    //now color it
-                    if (currentComment.nature == Comment.Nature.Bad || currentComment.nature == Comment.Nature.Ruminate) { //if current comment is negative
-                        currentContainer.color = negativeColor;
-                    }
-
-                    if (currentComment.nature == Comment.Nature.Good || currentComment.nature == Comment.Nature.Counter)
-                    {
-                        currentContainer.color = positiveColor;
-                    }
-
-                    if (currentComment.nature == Comment.Nature.Neutral)
-                    {
-                        currentContainer.color = neutralColor;
-                    }
-
-                    //set text
-                    currentContainer.text = allComments[j].Text;
-                }
-            }          
+            if (allComments[i].speaker == Comment.Speaker.Yellow && allComments[i].name.StartsWith(phase + "." + 1))
+            {
+                button1.GetComponent<StreamButton>().SetComment(allComments[i]);
+                Debug.Log("marker1.1");
+            }
         }
 
+        //find comment for button 2
+        for (int i = 0; i < allComments.Length; i++)
+        {
+            if (allComments[i].speaker == Comment.Speaker.Yellow && allComments[i].name.StartsWith(phase + "." + 2))
+            {
+                button2.GetComponent<StreamButton>().SetComment(allComments[i]);
+                Debug.Log("marker2.1");
+            }
+        }
 
         //add viewer comments with scriptable objects. push up (push back?) previous if max length has been reached
         int childCountB = viewerComments.transform.childCount;
@@ -142,12 +123,9 @@ public class MinigameManager : MonoBehaviour
 
     public void EndPhase() {
 
-        //wipe all yellows comment buttons. Viewer comments are simply refilled with empty "".
-        int childCountA = yellowsComments.transform.childCount;
-        for (int i = 0; i < childCountA; i++)
-        {
-            yellowsComments.transform.GetChild(i).transform.GetComponentInChildren<TextMeshProUGUI>().text = "";
-        }
+        //wipe all yellows comment buttons. Viewer comments are simply refilled with emptyComment.
+        //button1.GetComponent<StreamButton>().EmptyComment(); //wipe button 1
+        //button2.GetComponent<StreamButton>().EmptyComment(); //wipe button 2
 
         //wipe all user comment buttons
         int childCountB = viewerComments.transform.childCount;
@@ -161,12 +139,14 @@ public class MinigameManager : MonoBehaviour
         viewersCommentCover.GetComponent<Animator>().SetBool("reveal", false);
 
         runLifetime = false;
+        CalcHP();
         inPhase = false;
         phase += 1;
     }
-    public void CalcHP(int value) { //recalculate health using outcome of a comment
+
+    public void CalcHP() { //recalculate health using outcome of a comment
         health += _phasePoints;
-        Debug.Log("Lost/gained " + value + " health. Current health: " + health);
+        Debug.Log("Lost/gained " + _phasePoints + " health. Current health: " + health);
         //update the health bar accordingly
         SetHeath();
     }

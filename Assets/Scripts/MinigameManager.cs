@@ -168,21 +168,12 @@ public class MinigameManager : MonoBehaviour
         yellowsComments.GetComponent<Animator>().SetBool("slideIn", false);
         viewersCommentCover.GetComponent<Animator>().SetBool("reveal", false);
 
+        //gameObject.GetComponent<StreamHealth>().ca
         runLifetime = false;
         inPhase = false;
         phase += 1;
     }
-    public void CalcHP(int value) { //recalculate health using outcome of a comment
-        health += _phasePoints;
-        Debug.Log("Lost/gained " + value + " health. Current health: " + health);
-        //update the health bar accordingly
-        SetHeath();
-    }
-
-    void SetHeath() {
-        //sets the value or referenced slider to current health
-        slider.value = health;
-    }
+  
 
     void EndMinigame() {
         yellowsComments.SetActive(false);

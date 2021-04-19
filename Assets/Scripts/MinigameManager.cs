@@ -85,7 +85,7 @@ public class MinigameManager : MonoBehaviour
         {
             if (allComments[i].speaker == Comment.Speaker.Yellow && allComments[i].name.StartsWith(phase + "." + 1))
             {
-                button1.GetComponent<StreamButton>().SetComment(allComments[i]);
+                yellowsComments.GetComponent<StreamButton>().SetComment1(allComments[i]);
                 Debug.Log("marker1.1");
             }
         }
@@ -95,7 +95,7 @@ public class MinigameManager : MonoBehaviour
         {
             if (allComments[i].speaker == Comment.Speaker.Yellow && allComments[i].name.StartsWith(phase + "." + 2))
             {
-                button2.GetComponent<StreamButton>().SetComment(allComments[i]);
+                yellowsComments.GetComponent<StreamButton>().SetComment2(allComments[i]);
                 Debug.Log("marker2.1");
             }
         }
@@ -124,8 +124,7 @@ public class MinigameManager : MonoBehaviour
     public void EndPhase() {
 
         //wipe all yellows comment buttons. Viewer comments are simply refilled with emptyComment.
-        //button1.GetComponent<StreamButton>().EmptyComment(); //wipe button 1
-        //button2.GetComponent<StreamButton>().EmptyComment(); //wipe button 2
+        yellowsComments.GetComponent<StreamButton>().EmptyComments(); //wipe buttons
 
         //wipe all user comment buttons
         int childCountB = viewerComments.transform.childCount;

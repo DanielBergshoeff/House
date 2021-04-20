@@ -95,25 +95,6 @@ public class MinigameManager : MonoBehaviour
 
                     TextMeshProUGUI currentContainer = yellowsComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>();
                     Comment currentComment = allComments[j];
-
-
-                    //now color it
-                    if (currentComment.nature == Comment.Nature.Bad || currentComment.nature == Comment.Nature.Ruminate) { //if current comment is negative
-                        currentContainer.color = negativeColor;
-                    }
-
-                    if (currentComment.nature == Comment.Nature.Good || currentComment.nature == Comment.Nature.Counter)
-                    {
-                        currentContainer.color = positiveColor;
-                    }
-
-                    if (currentComment.nature == Comment.Nature.Neutral)
-                    {
-                        currentContainer.color = neutralColor;
-                    }
-
-                    //set text
-                    currentContainer.text = allComments[j].Text;
                 }
             }          
         }
@@ -142,21 +123,6 @@ public class MinigameManager : MonoBehaviour
 
     public void EndPhase() {
 
-        //check for negative comments in yellows comments, doesnt work
-        for (int i = 0; i < 2; i++) {
-            //if the child, starting from 1 (hence i+1) is a negative comment...
-            if (yellowsComments.transform.GetChild((i)).GetComponentInChildren<TextMeshProUGUI>().color == negativeColor) {
-                _phasePoints -= 1; //it does not calc rumination points now...
-            }
-        }
-
-        //wipe all yellows comment buttons. Viewer comments are simply refilled with empty "".
-        int childCountA = yellowsComments.transform.childCount;
-        for (int i = 0; i < childCountA; i++)
-        {
-            yellowsComments.transform.GetChild(i).transform.GetComponentInChildren<TextMeshProUGUI>().text = "";
-        }
-
         //wipe all user comment buttons
         int childCountB = viewerComments.transform.childCount;
         for (int i = 0; i < childCountB; i++)
@@ -168,7 +134,7 @@ public class MinigameManager : MonoBehaviour
         yellowsComments.GetComponent<Animator>().SetBool("slideIn", false);
         viewersCommentCover.GetComponent<Animator>().SetBool("reveal", false);
 
-        //gameObject.GetComponent<StreamHealth>().ca
+        gameObject.GetComponent<StreamHealth>().CalcHP(); //calculate all negative and positive numbers
         runLifetime = false;
         inPhase = false;
         phase += 1;

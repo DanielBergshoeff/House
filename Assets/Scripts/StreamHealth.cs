@@ -21,7 +21,7 @@ public class StreamHealth : MonoBehaviour
         _phasePoints += value;
     }
 
-    public void CalculateHealth()
+    public void CalcHP()
     {
         health += _phasePoints;
         //sets the value or referenced slider to current health

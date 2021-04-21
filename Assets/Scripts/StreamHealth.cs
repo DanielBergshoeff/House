@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class StreamHealth : MonoBehaviour
 {
+    public MinigameManager minigameManager;
     public Slider slider;
     public int health = 10;
 
@@ -23,6 +24,29 @@ public class StreamHealth : MonoBehaviour
 
     public void CalcHP()
     {
+        //check if yellows second button comments
+        if (minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Bad) { //if yellows first comment was a bad
+            Subtract(minigameManager.badCommentValue);
+        }
+
+        //check if there are ruminate comments
+        if (minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) { //if yellows first comment was a rumination
+            Subtract(minigameManager.ruminateValue);
+        }
+
+        //check yellows first button comment
+        if (minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Bad)
+        { //if yellows first comment was a bad
+            Subtract(minigameManager.badCommentValue);
+        }
+
+        //check if there are ruminate comments
+        if (minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate)
+        { //if yellows first comment was a rumination
+            Subtract(minigameManager.ruminateValue);
+        }
+
+
         health += _phasePoints;
         //sets the value or referenced slider to current health
         slider.value = health;

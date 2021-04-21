@@ -113,7 +113,7 @@ public class MinigameManager : MonoBehaviour
             {
                 if (allComments[j].name.Contains("Viewer") && allComments[j].name.StartsWith(phase + "." + i))
                 {
-                    //set text
+                    //set buttonComment
                     viewerComments.transform.GetChild(i - 1).GetComponent<StreamButton>().buttonComment = allComments[j];
                 }
             }

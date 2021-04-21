@@ -9,6 +9,7 @@ using TMPro;
 public class StreamButton : MonoBehaviour
 {
     public MinigameManager minigameManager;
+    public StreamHealth streamHealth;
 
     [Header("Keep this empty")]
     [HideInInspector]
@@ -50,12 +51,23 @@ public class StreamButton : MonoBehaviour
     }
 
     //button methods
-    public void CheckComment() { 
-        //add points if positive comment
+    public void CheckComment() {
+        
+        //add points if good comment
+        if (buttonComment.nature == Comment.Nature.Good) {
+            streamHealth.Add(minigameManager.goodCommentValue);
+            Debug.Log("Comment clicked was good");
+        }
+
         //neutralize bad comment to neutral if bad
+        if (buttonComment.nature == Comment.Nature.Bad)
+        {
+            buttonComment = minigameManager.emptyComment;
+            Debug.Log("Comment clicked was bad");
+        }
 
         //VIEWER BUTTONS FUNCTIONALITY
-        
+
         //Counters:
         //check if this buttons buttonComment was a counter
         //if so, check all current yellowsComments buttonComments' nature

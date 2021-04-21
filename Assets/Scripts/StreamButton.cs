@@ -22,7 +22,7 @@ public class StreamButton : MonoBehaviour
 
     private void Update()
     {
-        if (buttonComment != null) { 
+        if (buttonComment != null) { //if you don't use this, things will work, but console will display a lot of errors
             //set text
             gameObject.GetComponentInChildren<TextMeshProUGUI>().text = buttonComment.Text;
 

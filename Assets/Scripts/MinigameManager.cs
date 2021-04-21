@@ -96,20 +96,15 @@ public class MinigameManager : MonoBehaviour
         {//i = the comment we are looking at
 
             if (allComments[i].name.Contains("Yellow") && allComments[i].name.StartsWith(phase + "." + 1))
-            { //find the comment for the 1st button, hence the 1s
-                yellowChild1.GetComponentInChildren<StreamButton>().SetButtonComment(allComments[i]); //pass on the correct comment
+            { //find the comment for the 1st button, hence the 1
+                yellowChild1.GetComponentInChildren<StreamButton>().buttonComment = allComments[i]; //pass on the correct comment
             }
-        }
-
-        //fill yellows comments with scriptable objects
-        for (int i = 0; i < allComments.Length; i++)
-        {//i = the comment we are looking at
-
             if (allComments[i].name.Contains("Yellow") && allComments[i].name.StartsWith(phase + "." + 2))
-            { //find the comment for the 1st button, hence the 1s
-                yellowChild2.GetComponentInChildren<StreamButton>().SetButtonComment(allComments[i]); //pass on the correct comment
+            { //find the comment for the 2nd button, hence the 2
+                yellowChild2.GetComponentInChildren<StreamButton>().buttonComment = allComments[i]; //pass on the correct comment
             }
         }
+
 
 
         ////add viewer comments with scriptable objects. push up (push back?) previous if max length has been reached
@@ -135,12 +130,12 @@ public class MinigameManager : MonoBehaviour
 
     public void EndPhase() {
 
-        //wipe all user comment buttons
-        int childCountB = viewerComments.transform.childCount;
-        for (int i = 0; i < childCountB; i++)
-        {
-            viewerComments.transform.GetChild(i).transform.GetComponentInChildren<StreamButton>().SetButtonComment(emptyComment);
-        }
+        ////wipe all user comment buttons
+        //int childCountB = viewerComments.transform.childCount;
+        //for (int i = 0; i < childCountB; i++)
+        //{
+        //    viewerComments.transform.GetChild(i).transform.GetComponentInChildren<StreamButton>().SetButtonComment(emptyComment);
+        //}
         
         //have Yellows comments animation disabled, so it will play next time it gets enabled, holding new text.
         yellowsComments.GetComponent<Animator>().SetBool("slideIn", false);

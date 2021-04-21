@@ -16,33 +16,44 @@ public class StreamButton : MonoBehaviour
 
     private void Awake()
     {
-        //this makes sure console dont go flippin if there aint no comment
-        buttonComment = minigameManager.emptyComment;
+        ////this makes sure console dont go flippin if there aint no comment
+        //buttonComment = minigameManager.emptyComment;
     }
 
     private void Update()
     {
-        if (buttonComment.nature == Comment.Nature.Good || buttonComment.nature == Comment.Nature.Counter)
-        {
-            gameObject.GetComponentInChildren<TextMeshProUGUI>().color = minigameManager.positiveColor;
+        if (buttonComment != null) { 
+            //set text
+            gameObject.GetComponentInChildren<TextMeshProUGUI>().text = buttonComment.Text;
+
+            //set pos color
+             if (buttonComment.nature == Comment.Nature.Good || buttonComment.nature == Comment.Nature.Counter) {
+                gameObject.GetComponentInChildren<TextMeshProUGUI>().color = minigameManager.positiveColor;
+             }
+
+            //set neg color
+            if (buttonComment.nature == Comment.Nature.Bad || buttonComment.nature == Comment.Nature.Ruminate)
+            {
+                gameObject.GetComponentInChildren<TextMeshProUGUI>().color = minigameManager.negativeColor;
+            }
+
+            //set neutral color
+            if (buttonComment.nature == Comment.Nature.Neutral)
+            {
+                gameObject.GetComponentInChildren<TextMeshProUGUI>().color = minigameManager.neutralColor;
+            }
         }
-
-        //set neg color
-        //set neutral color
-
-        //set text
-        gameObject.GetComponentInChildren<TextMeshProUGUI>().text = buttonComment.Text;
     }
 
-    public void SetButtonComment(Comment otherComment) {
+    //public void SetButtonComment(Comment otherComment) {
 
-        //copy the values over to this button's buttonComment
-        Debug.Log("Button text before overwrite: " + buttonComment.Text + ". Other comment text: " + otherComment.Text);
-        buttonComment.Text = otherComment.Text;
-        buttonComment.nature = otherComment.nature;
-        buttonComment.speaker = otherComment.speaker;
-        buttonComment.Phase = otherComment.Phase;
-    }
+    //    //copy the values over to this button's buttonComment
+    //    Debug.Log("Button text before overwrite: " + buttonComment.Text + ". Other comment text: " + otherComment.Text);
+    //    buttonComment.Text = otherComment.Text;
+    //    buttonComment.nature = otherComment.nature;
+    //    buttonComment.speaker = otherComment.speaker;
+    //    buttonComment.Phase = otherComment.Phase;
+    //}
 
     public void CalcDMG() { 
         //calculate negative damage

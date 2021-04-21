@@ -40,6 +40,10 @@ public class MinigameManager : MonoBehaviour
     public float remainingLifetime;
     bool runLifetime = false;
 
+    [Header("Dirty hacky code")]
+    public GameObject yellowChild1;
+    public GameObject yellowChild2;
+
     public Comment[] allComments;
 
     public void Awake()
@@ -86,31 +90,43 @@ public class MinigameManager : MonoBehaviour
         
         remainingLifetime = lifetime;
 
+
         //fill yellows comments with scriptable objects
+        for (int i = 0; i < allComments.Length; i++)
+        {//i = the comment we are looking at
 
-            for (int i = 0; i < allComments.Length; i++) {//i = the comment we are looking at
-                if (allComments[i].name.Contains("Yellow") && allComments[i].name.StartsWith(phase + "." + 1)) { //find the comment for the 1st button, hence the 1
-                    yellowsComments.transform.GetChild(1).GetComponentInChildren<StreamButton>().SetButtonComment(allComments[i]); //pass on the correct comment
-                    
-                }
-            }          
-
-
-        //add viewer comments with scriptable objects. push up (push back?) previous if max length has been reached
-        int childCountB = viewerComments.transform.childCount;
-        for (int i = 0; i < childCountB + 1; i++)
-        {
-            //find the comment we need
-            for (int j = 0; j < allComments.Length; j++)
-            {
-                if (allComments[j].name.Contains("Viewer") && allComments[j].name.StartsWith(phase + "." + i))
-                {
-
-                    //set text
-                    viewerComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>().text = "user: " + allComments[j].Text;
-                }
+            if (allComments[i].name.Contains("Yellow") && allComments[i].name.StartsWith(phase + "." + 1))
+            { //find the comment for the 1st button, hence the 1s
+                yellowChild1.GetComponentInChildren<StreamButton>().SetButtonComment(allComments[i]); //pass on the correct comment
             }
         }
+
+        //fill yellows comments with scriptable objects
+        for (int i = 0; i < allComments.Length; i++)
+        {//i = the comment we are looking at
+
+            if (allComments[i].name.Contains("Yellow") && allComments[i].name.StartsWith(phase + "." + 2))
+            { //find the comment for the 1st button, hence the 1s
+                yellowChild2.GetComponentInChildren<StreamButton>().SetButtonComment(allComments[i]); //pass on the correct comment
+            }
+        }
+
+
+        ////add viewer comments with scriptable objects. push up (push back?) previous if max length has been reached
+        //int childCountB = viewerComments.transform.childCount;
+        //for (int i = 0; i < childCountB + 1; i++)
+        //{
+        //    //find the comment we need
+        //    for (int j = 0; j < allComments.Length; j++)
+        //    {
+        //        if (allComments[j].name.Contains("Viewer") && allComments[j].name.StartsWith(phase + "." + i))
+        //        {
+
+        //            //set text
+        //            viewerComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>().text = "user: " + allComments[j].Text;
+        //        }
+        //    }
+        //}
 
         inPhase = true; //let script know we are in a phase
         runLifetime = true; //allow the starting of the remainingLifetime counter

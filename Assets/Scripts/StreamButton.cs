@@ -14,7 +14,7 @@ public class StreamButton : MonoBehaviour
     [HideInInspector]
     public Comment buttonComment;
 
-    private void Start()
+    private void Awake()
     {
         //this makes sure console dont go flippin if there aint no comment
         buttonComment = minigameManager.emptyComment;
@@ -32,18 +32,16 @@ public class StreamButton : MonoBehaviour
 
         //set text
         gameObject.GetComponentInChildren<TextMeshProUGUI>().text = buttonComment.Text;
-        Debug.Log("Current placeholder text is: " + buttonComment.Text);
     }
 
     public void SetButtonComment(Comment otherComment) {
 
-        Debug.Log("Called SetButtonComment");
         //copy the values over to this button's buttonComment
+        Debug.Log("Button text before overwrite: " + buttonComment.Text + ". Other comment text: " + otherComment.Text);
         buttonComment.Text = otherComment.Text;
         buttonComment.nature = otherComment.nature;
         buttonComment.speaker = otherComment.speaker;
         buttonComment.Phase = otherComment.Phase;
-        Debug.Log(buttonComment.Text);//the real question is, why are we not printing this? Is the function broken?
     }
 
     public void CalcDMG() { 

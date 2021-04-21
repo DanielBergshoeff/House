@@ -45,16 +45,6 @@ public class StreamButton : MonoBehaviour
         }
     }
 
-    //public void SetButtonComment(Comment otherComment) {
-
-    //    //copy the values over to this button's buttonComment
-    //    Debug.Log("Button text before overwrite: " + buttonComment.Text + ". Other comment text: " + otherComment.Text);
-    //    buttonComment.Text = otherComment.Text;
-    //    buttonComment.nature = otherComment.nature;
-    //    buttonComment.speaker = otherComment.speaker;
-    //    buttonComment.Phase = otherComment.Phase;
-    //}
-
     public void CalcDMG() { 
         //calculate negative damage
     }

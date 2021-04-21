@@ -93,8 +93,7 @@ public class MinigameManager : MonoBehaviour
 
         //fill yellows comments with scriptable objects
         for (int i = 0; i < allComments.Length; i++)
-        {//i = the comment we are looking at
-
+        {
             if (allComments[i].name.Contains("Yellow") && allComments[i].name.StartsWith(phase + "." + 1))
             { //find the comment for the 1st button, hence the 1
                 yellowChild1.GetComponentInChildren<StreamButton>().buttonComment = allComments[i]; //pass on the correct comment
@@ -105,38 +104,39 @@ public class MinigameManager : MonoBehaviour
             }
         }
 
-
-
-        ////add viewer comments with scriptable objects. push up (push back?) previous if max length has been reached
-        //int childCountB = viewerComments.transform.childCount;
-        //for (int i = 0; i < childCountB + 1; i++)
-        //{
-        //    //find the comment we need
-        //    for (int j = 0; j < allComments.Length; j++)
-        //    {
-        //        if (allComments[j].name.Contains("Viewer") && allComments[j].name.StartsWith(phase + "." + i))
-        //        {
-
-        //            //set text
-        //            viewerComments.transform.GetChild(i - 1).transform.GetComponentInChildren<TextMeshProUGUI>().text = "user: " + allComments[j].Text;
-        //        }
-        //    }
-        //}
+        //add viewer comments with scriptable objects
+        int childCountB = viewerComments.transform.childCount;
+        for (int i = 0; i < childCountB + 1; i++)
+        {
+            //find the comment we need
+            for (int j = 0; j < allComments.Length; j++)
+            {
+                if (allComments[j].name.Contains("Viewer") && allComments[j].name.StartsWith(phase + "." + i))
+                {
+                    //set text
+                    viewerComments.transform.GetChild(i - 1).GetComponent<StreamButton>().buttonComment = allComments[j];
+                }
+            }
+        }
 
         inPhase = true; //let script know we are in a phase
         runLifetime = true; //allow the starting of the remainingLifetime counter
-        //looking for a yellows or viewers comments follows the same algorithm. Which means there is room for optimization.
     }
 
     public void EndPhase() {
 
-        ////wipe all user comment buttons
-        //int childCountB = viewerComments.transform.childCount;
-        //for (int i = 0; i < childCountB; i++)
-        //{
-        //    viewerComments.transform.GetChild(i).transform.GetComponentInChildren<StreamButton>().SetButtonComment(emptyComment);
-        //}
-        
+        //wipe all viewer comment buttons
+        int childCountB = viewerComments.transform.childCount;
+        for (int i = 0; i < childCountB; i++) {
+            viewerComments.transform.GetChild(i).GetComponent<StreamButton>().buttonComment = emptyComment;
+        }
+
+        //wipe all Yellow comment buttons
+        int childCountA = yellowsComments.transform.childCount;
+        for (int i = 0; i < childCountA; i++) {
+            yellowsComments.transform.GetChild(i).GetComponent<StreamButton>().buttonComment = emptyComment;
+        }
+
         //have Yellows comments animation disabled, so it will play next time it gets enabled, holding new text.
         yellowsComments.GetComponent<Animator>().SetBool("slideIn", false);
         viewersCommentCover.GetComponent<Animator>().SetBool("reveal", false);

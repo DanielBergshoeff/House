@@ -24,27 +24,26 @@ public class StreamHealth : MonoBehaviour
 
     public void CalcHP()
     {
-        //check if yellows second button comments
-        if (minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Bad) { //if yellows first comment was a bad
-            Subtract(minigameManager.badCommentValue);
+        //check viewers comments for bad comments
+        int childCountB = minigameManager.viewerComments.transform.childCount;
+        for (int i = 0; i < childCountB; i++)
+        {
+            if (minigameManager.viewerComments.transform.GetChild(i).GetComponent<StreamButton>().buttonComment.nature == Comment.Nature.Bad) {
+                Subtract(minigameManager.badCommentValue);
+                Debug.Log("Viewer comment" + minigameManager.viewerComments.transform.GetChild(i).GetComponent<StreamButton>().buttonComment.Text + " was bad");
+            }
         }
 
-        //check if there are ruminate comments
-        if (minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) { //if yellows first comment was a rumination
-            Subtract(minigameManager.ruminateValue);
-        }
 
-        //check yellows first button comment
-        if (minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Bad)
-        { //if yellows first comment was a bad
-            Subtract(minigameManager.badCommentValue);
-        }
 
-        //check if there are ruminate comments
-        if (minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate)
-        { //if yellows first comment was a rumination
-            Subtract(minigameManager.ruminateValue);
-        }
+        ////wipe all Yellow comment buttons
+        //int childCountA = minigameManager.yellowsComments.transform.childCount;
+        //for (int i = 0; i < childCountA; i++)
+        //{
+        //    minigameManager.yellowsComments.transform.GetChild(i).GetComponent<StreamButton>().buttonComment = emptyComment;
+        //}
+        //Subtract(minigameManager.ruminateValue);
+        
 
 
         health += _phasePoints;

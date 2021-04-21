@@ -33,7 +33,6 @@ public class MinigameManager : MonoBehaviour
     public int phase = 0;
     public int phaseAmount;
     public bool inPhase = false;
-    private int _phasePoints;
 
     [Tooltip("How long sentences should show for")]
     public float lifetime = 5;
@@ -124,13 +123,13 @@ public class MinigameManager : MonoBehaviour
     }
 
     public void EndPhase() {
+        gameObject.GetComponent<StreamHealth>().CalcHP(); //calculate all negative and positive numbers
 
         //wipe all viewer comment buttons
         int childCountB = viewerComments.transform.childCount;
         for (int i = 0; i < childCountB; i++) {
             viewerComments.transform.GetChild(i).GetComponent<StreamButton>().buttonComment = emptyComment;
         }
-
         //wipe all Yellow comment buttons
         int childCountA = yellowsComments.transform.childCount;
         for (int i = 0; i < childCountA; i++) {
@@ -141,7 +140,6 @@ public class MinigameManager : MonoBehaviour
         yellowsComments.GetComponent<Animator>().SetBool("slideIn", false);
         viewersCommentCover.GetComponent<Animator>().SetBool("reveal", false);
 
-        gameObject.GetComponent<StreamHealth>().CalcHP(); //calculate all negative and positive numbers
         runLifetime = false;
         inPhase = false;
         phase += 1;

@@ -123,6 +123,7 @@ public class MinigameManager : MonoBehaviour
     }
 
     public void EndPhase() {
+        //reset _phasePoints if you wanna use that
         gameObject.GetComponent<StreamHealth>().CalcHP(); //calculate all negative and positive numbers
 
         //wipe all viewer comment buttons
@@ -139,7 +140,7 @@ public class MinigameManager : MonoBehaviour
         //have Yellows comments animation disabled, so it will play next time it gets enabled, holding new text.
         yellowsComments.GetComponent<Animator>().SetBool("slideIn", false);
         viewersCommentCover.GetComponent<Animator>().SetBool("reveal", false);
-
+        
         runLifetime = false;
         inPhase = false;
         phase += 1;

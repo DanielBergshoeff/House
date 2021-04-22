@@ -69,13 +69,35 @@ public class StreamButton : MonoBehaviour
         //VIEWER BUTTONS FUNCTIONALITY
 
         //Counters:
-        //check if this buttons buttonComment was a counter
-        //if so, check all current yellowsComments buttonComments' nature
+        //check all current yellowsComments buttonComments' nature
         //if it was ruminate, neutralize that by turning its nature to neutral
 
-        //Ruminates:
-        //if the nature of this comment was ruminate,
-        //hint the player in a text to look for the right counter
+
+        //check yellow child 1
+        if (buttonComment.nature == Comment.Nature.Counter) { //if this buttons buttonComment was a counter
+            if (minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) {
+                minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment = minigameManager.emptyComment;
+                Debug.Log("Comment clicked was a counter on yellow comment 1");
+            }
+        }
+
+        //check yellow child 2
+        if (buttonComment.nature == Comment.Nature.Counter)
+        { //if this buttons buttonComment was a counter
+            if (minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) {
+                minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment = minigameManager.emptyComment;
+                Debug.Log("Comment clicked was a counter on yellow comment 2");
+            }
+        }
+
+       
+
+        //RUMINATES:
+        if (buttonComment.nature == Comment.Nature.Ruminate) { //if the nature of this comment was ruminate,
+           Debug.Log("Find a counter comment!"); //hint the player in a text to look for the right counter
+        }
+        
+        
     }
 
 }

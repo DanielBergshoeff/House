@@ -15,11 +15,11 @@ public class StreamHealth : MonoBehaviour
     private int _phasePoints; //the total points that will be added to the total health at the end of a round
 
     public void Subtract(int value) {
-        _phasePoints -= value;
+        health -= value;
     }
 
     public void Add(int value) {
-        _phasePoints += value;
+        health += value;
     }
 
     public void CalcHP()
@@ -34,19 +34,10 @@ public class StreamHealth : MonoBehaviour
             }
         }
 
-
-
-        ////wipe all Yellow comment buttons
-        //int childCountA = minigameManager.yellowsComments.transform.childCount;
-        //for (int i = 0; i < childCountA; i++)
-        //{
-        //    minigameManager.yellowsComments.transform.GetChild(i).GetComponent<StreamButton>().buttonComment = emptyComment;
-        //}
-        //Subtract(minigameManager.ruminateValue);
         
 
 
-        health += _phasePoints;
+        //health += _phasePoints;
         //sets the value or referenced slider to current health
         slider.value = health;
     }

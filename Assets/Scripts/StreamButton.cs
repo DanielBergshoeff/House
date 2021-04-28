@@ -58,6 +58,14 @@ public class StreamButton : MonoBehaviour
             streamHealth.Add(minigameManager.goodCommentValue);
             PlayTooltip("Highlighted!", minigameManager.positiveColor);
         }
+        
+        //add points if counter comment
+        if (buttonComment.nature == Comment.Nature.Counter)
+        {
+            streamHealth.Add(minigameManager.counterValue);
+            PlayTooltip("Counter found!", minigameManager.positiveColor);
+        }
+
 
         //neutralize bad comment to neutral if bad
         if (buttonComment.nature == Comment.Nature.Bad)
@@ -77,6 +85,7 @@ public class StreamButton : MonoBehaviour
         if (buttonComment.nature == Comment.Nature.Counter) { //if this buttons buttonComment was a counter
             if (minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) {
                 minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment = minigameManager.emptyComment;
+                PlayTooltip("Counter found!", minigameManager.positiveColor);
                 Debug.Log("Comment clicked was a counter on yellow comment 1");
             }
         }
@@ -86,6 +95,7 @@ public class StreamButton : MonoBehaviour
         { //if this buttons buttonComment was a counter
             if (minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) {
                 minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment = minigameManager.emptyComment;
+                PlayTooltip("Counter found!", minigameManager.positiveColor);
                 Debug.Log("Comment clicked was a counter on yellow comment 2");
             }
         }
@@ -94,7 +104,8 @@ public class StreamButton : MonoBehaviour
 
         //RUMINATES:
         if (buttonComment.nature == Comment.Nature.Ruminate) { //if the nature of this comment was ruminate,
-           Debug.Log("Find a counter comment!"); //hint the player in a text to look for the right counter
+            PlayTooltip("Cannot ban, find a counter!", minigameManager.negativeColor);
+            Debug.Log("Find a counter comment!"); //hint the player in a text to look for the right counter
         }
 
          void PlayTooltip(string text, Color color){
@@ -102,7 +113,7 @@ public class StreamButton : MonoBehaviour
             minigameManager.tooltip.GetComponentInChildren<TextMeshProUGUI>().text = text; //set text
             minigameManager.tooltip.GetComponentInChildren<TextMeshProUGUI>().color = color; //set color
             minigameManager.tooltipCanvas.GetComponent<Animator>().SetTrigger("play");
-        }
+            }
         
     }
 

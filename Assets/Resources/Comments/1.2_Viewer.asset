@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7785c01362190d44a70f27ab1bb5233, type: 3}
-  m_Name: 1
+  m_Name: 1.2_Viewer
   m_EditorClassIdentifier: 
   speaker: 1
   Phase: 2

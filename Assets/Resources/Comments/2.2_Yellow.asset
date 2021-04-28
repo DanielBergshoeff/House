@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speaker: 0
   Phase: 2
-  nature: 2
-  Text: ...but I lost because my gaming skills are just that crappy...
+  nature: 0
+  Text: let's hope things will improve today!

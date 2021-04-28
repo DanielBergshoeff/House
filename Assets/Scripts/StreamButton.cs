@@ -98,8 +98,7 @@ public class StreamButton : MonoBehaviour
         }
 
          void PlayTooltip(string text, Color color){
-            Vector2 position = Input.mousePosition;
-            minigameManager.tooltip.transform.position = position; //then set the pos of tooltip base off mouse pos
+            minigameManager.tooltip.transform.position = gameObject.transform.position; //then set the pos of tooltip base off the comment you clicked
             minigameManager.tooltip.GetComponentInChildren<TextMeshProUGUI>().text = text; //set text
             minigameManager.tooltip.GetComponentInChildren<TextMeshProUGUI>().color = color; //set color
             minigameManager.tooltipCanvas.GetComponent<Animator>().SetTrigger("play");

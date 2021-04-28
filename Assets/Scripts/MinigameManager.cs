@@ -39,6 +39,10 @@ public class MinigameManager : MonoBehaviour
     public float remainingLifetime;
     bool runLifetime = false;
 
+    [Header("Tooltip settings")]
+    public Canvas tooltipCanvas;
+    public GameObject tooltip;
+
     [Header("Dirty hacky code")]
     public GameObject yellowChild1;
     public GameObject yellowChild2;

@@ -56,14 +56,14 @@ public class StreamButton : MonoBehaviour
         //add points if good comment
         if (buttonComment.nature == Comment.Nature.Good) {
             streamHealth.Add(minigameManager.goodCommentValue);
-            Debug.Log("Comment clicked was good");
+            PlayTooltip("Highlighted!", minigameManager.positiveColor);
         }
 
         //neutralize bad comment to neutral if bad
         if (buttonComment.nature == Comment.Nature.Bad)
         {
             buttonComment = minigameManager.emptyComment;
-            Debug.Log("Comment clicked was bad");
+            PlayTooltip("Neutralized!", minigameManager.neutralColor);
         }
 
         //VIEWER BUTTONS FUNCTIONALITY
@@ -96,7 +96,14 @@ public class StreamButton : MonoBehaviour
         if (buttonComment.nature == Comment.Nature.Ruminate) { //if the nature of this comment was ruminate,
            Debug.Log("Find a counter comment!"); //hint the player in a text to look for the right counter
         }
-        
+
+         void PlayTooltip(string text, Color color){
+            Vector2 position = Input.mousePosition;
+            minigameManager.tooltip.transform.position = position; //then set the pos of tooltip base off mouse pos
+            minigameManager.tooltip.GetComponentInChildren<TextMeshProUGUI>().text = text; //set text
+            minigameManager.tooltip.GetComponentInChildren<TextMeshProUGUI>().color = color; //set color
+            minigameManager.tooltipCanvas.GetComponent<Animator>().SetTrigger("play");
+        }
         
     }
 

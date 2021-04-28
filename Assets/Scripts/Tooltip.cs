@@ -1,22 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.UI;//well this was prod and poked 7:28
 
 //InputSystemUIInputModule inputModule;
 public class Tooltip : MonoBehaviour
 {
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    InputSystemUIInputModule inputModule;
+    public Input inputThing;
     // Update is called once per frame
     void Update()
-    {   
-        Vector2 position = Input.mousePosition;
-        transform.position = position; //then set the pos of tooltip base off mouse pos
+    {
+        //reference your action map so u can talk about their items
+        //private PlayerActions controls;
+        //vector2 mouseposition = controls.player
+        //vector2 position = input.mouseposition;
+        //transform.position = position; //then set the pos of tooltip base off mouse pos
     }
 }

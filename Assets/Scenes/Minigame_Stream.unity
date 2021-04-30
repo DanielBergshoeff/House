@@ -3895,7 +3895,7 @@ MonoBehaviour:
   neutralColor: {r: 0, g: 0, b: 0, a: 1}
   lerpModefier: 0.5
   phase: 0
-  phaseAmount: 7
+  phaseAmount: 8
   inPhase: 0
   lifetime: 7
   remainingLifetime: 0

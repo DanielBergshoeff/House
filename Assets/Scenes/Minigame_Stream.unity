@@ -3278,7 +3278,7 @@ MonoBehaviour:
   positiveColor: {r: 0, g: 0.6886792, b: 0.011477976, a: 1}
   negativeColor: {r: 1, g: 0.08551968, b: 0, a: 1}
   neutralColor: {r: 0, g: 0, b: 0, a: 1}
-  lerpTime: 0.5
+  lerpModefier: 0.5
   phase: 0
   phaseAmount: 3
   inPhase: 0
@@ -3430,7 +3430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -131, y: 438}
+  m_AnchoredPosition: {x: -269, y: -376}
   m_SizeDelta: {x: 105.61, y: 17.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9047934212466437845

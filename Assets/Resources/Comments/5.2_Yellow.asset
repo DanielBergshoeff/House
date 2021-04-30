@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7785c01362190d44a70f27ab1bb5233, type: 3}
-  m_Name: 2.2_Yellow
+  m_Name: 5.2_Yellow
   m_EditorClassIdentifier: 
   speaker: 0
-  Phase: 2
+  Phase: 5
   nature: 0
-  Text: err, let's hope things will improve today.
+  Text: I should level up first.

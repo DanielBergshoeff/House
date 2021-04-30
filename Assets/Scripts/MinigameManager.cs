@@ -28,6 +28,7 @@ public class MinigameManager : MonoBehaviour
     [Tooltip("Set color for bad and ruminate colors.")]
     public Color negativeColor;
     public Color neutralColor;
+    public float lerpModefier = 0.5f;
 
     [Header("Minigame values")]
     public int phase = 0;

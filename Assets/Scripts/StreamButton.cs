@@ -41,11 +41,11 @@ public class StreamButton : MonoBehaviour
                 gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.Lerp(minigameManager.negativeColor, minigameManager.neutralColor, (1f/minigameManager.lifetime+minigameManager.lerpModefier)*minigameManager.remainingLifetime);
             }
 
-            ////set neutral color
-            //if (buttonComment.nature == Comment.Nature.Neutral)
-            //{
-            //    gameObject.GetComponentInChildren<TextMeshProUGUI>().color = minigameManager.neutralColor;
-            //}
+            //set neutral color
+            if (buttonComment.nature == Comment.Nature.Neutral)
+            {
+                gameObject.GetComponentInChildren<TextMeshProUGUI>().color = minigameManager.neutralColor;
+            }
         }
     }
 

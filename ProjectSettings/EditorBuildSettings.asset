@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Minigame_Stream.unity
     guid: d7cf45d33730f5946a8d1840126e1338
   - enabled: 1

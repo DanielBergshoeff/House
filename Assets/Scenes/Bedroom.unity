@@ -4644,22 +4644,22 @@ PrefabInstance:
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08709023
+      value: 0.08709117
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.91136706
+      value: 0.91136634
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.25402918
+      value: -0.2540319
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.31192085
+      value: 0.3119205
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
@@ -4774,22 +4774,22 @@ PrefabInstance:
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08709023
+      value: 0.08709117
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.91136706
+      value: 0.91136634
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.25402918
+      value: -0.2540319
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.31192085
+      value: 0.3119205
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}

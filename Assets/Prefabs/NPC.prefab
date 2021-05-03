@@ -72,6 +72,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ab2a51d8de69b4796f2e23cf7bf6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerControls: {fileID: -944628639613478452, guid: d49e580f142cfd24aa307d992617720d,
+    type: 3}
 --- !u!95 &1907323861455510748
 Animator:
   serializedVersion: 3

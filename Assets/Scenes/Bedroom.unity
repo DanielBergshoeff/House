@@ -5126,22 +5126,22 @@ PrefabInstance:
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08709337
+      value: 0.08709512
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9113716
+      value: 0.9113703
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.25403714
+      value: -0.25404227
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.31190002
+      value: 0.3118995
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
@@ -5256,37 +5256,37 @@ PrefabInstance:
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.08709512
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.9113703
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.25404227
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.3118995
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.45
+      value: -10.434999
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.9100003
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.35
+      value: 8.204999
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4449906103771647983, guid: a487dfcebdc0ea4409291d9cc600c29d, type: 3}
@@ -10893,7 +10893,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 317.51917
     y: 300.94254
-    width: 70
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10921,7 +10921,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 318.78513
     y: 364.23303
-    width: 64
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10974,7 +10974,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 201.0633
     y: 307.5369
-    width: 111
+    width: 71
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11957,7 +11957,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 44b10e47084addf4987bc0c9848ffbba, type: 3}
   - {fileID: 21300000, guid: dda17c0c831b4ea45bf59d7ad9887871, type: 3}
   - {fileID: 21300000, guid: cc8e134e59cf19342a274b2ac9d1e5fc, type: 3}
-  - {fileID: 21300000, guid: e6a475c49e44de84d99b15650a2bd1eb, type: 3}
+  - {fileID: 21300000, guid: b67f6b396b9afd8429edff8e2eb8aa2b, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 0}
   description: 
@@ -12350,6 +12350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: storyText
       value: Good afternoon buddy! How can I help you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546842434955486599, guid: ef5ad0f9efcf0ef4797e46c3b82cb144,
+        type: 3}
+      propertyPath: portrait
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2546842434955486600, guid: ef5ad0f9efcf0ef4797e46c3b82cb144,
         type: 3}

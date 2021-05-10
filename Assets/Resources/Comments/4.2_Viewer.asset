@@ -15,4 +15,4 @@ MonoBehaviour:
   speaker: 1
   Phase: 4
   nature: 0
-  Text: 'Purp: You should get more levels first, you''re underleveled'
+  Text: You should get more levels first, you're underleveled

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speaker: 1
   Phase: 7
-  nature: 0
-  Text: 'greenry: That means your stream is bad.'
+  nature: 2
+  Text: That means your stream is bad.

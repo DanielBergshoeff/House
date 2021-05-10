@@ -1299,7 +1299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -38.900024, y: 38.074993}
+  m_AnchoredPosition: {x: -191, y: 38.074993}
   m_SizeDelta: {x: 77.900024, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &226839654
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226839652}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8739a3bf9ed54fb41a6c23fc4ac8708c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3529,18 +3529,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1728990620496619808}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &590221281 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2546842434955486617, guid: ef5ad0f9efcf0ef4797e46c3b82cb144,
-    type: 3}
-  m_PrefabInstance: {fileID: 1728990620496619808}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590221280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &590221283 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2546842434955486595, guid: ef5ad0f9efcf0ef4797e46c3b82cb144,
@@ -5093,6 +5081,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b3bad9767374a7b40b20434a1259dede, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1637396980143286885, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5126,22 +5134,22 @@ PrefabInstance:
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08709548
+      value: 0.08709723
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.91137016
+      value: 0.9113699
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.25404328
+      value: -0.2540482
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3118989
+      value: 0.31189516
       objectReference: {fileID: 0}
     - target: {fileID: 2620252858669301058, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
@@ -5256,22 +5264,22 @@ PrefabInstance:
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08709548
+      value: 0.08709723
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.91137016
+      value: 0.9113699
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.25404328
+      value: -0.2540482
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3118989
+      value: 0.31189516
       objectReference: {fileID: 0}
     - target: {fileID: 2620252860160604015, guid: a487dfcebdc0ea4409291d9cc600c29d,
         type: 3}
@@ -5288,28 +5296,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 8.204999
       objectReference: {fileID: 0}
-    - target: {fileID: 6536495884100290040, guid: a487dfcebdc0ea4409291d9cc600c29d,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: b3bad9767374a7b40b20434a1259dede, type: 3}
-    - target: {fileID: 6536495884100290040, guid: a487dfcebdc0ea4409291d9cc600c29d,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536495884100290040, guid: a487dfcebdc0ea4409291d9cc600c29d,
-        type: 3}
-      propertyPath: BypassReverbZones
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536495884100290040, guid: a487dfcebdc0ea4409291d9cc600c29d,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4449906103771647983, guid: a487dfcebdc0ea4409291d9cc600c29d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a487dfcebdc0ea4409291d9cc600c29d, type: 3}
 --- !u!1 &799565575
 GameObject:
@@ -6563,7 +6550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 590221281}
+  selectedFlowchart: {fileID: 1961496881}
 --- !u!4 &1164695343
 Transform:
   m_ObjectHideFlags: 1
@@ -10913,7 +10900,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 317.51917
     y: 300.94254
-    width: 60
+    width: 70.61856
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10941,7 +10928,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 318.78513
     y: 364.23303
-    width: 60
+    width: 64.43299
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10994,7 +10981,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 201.0633
     y: 307.5369
-    width: 71
+    width: 112.886604
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11020,11 +11007,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -63.838673, y: 25.283617}
+  scrollPos: {x: -54.94386, y: 37.17732}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.99999994
+  zoom: 0.9699999
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -11979,7 +11966,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cc8e134e59cf19342a274b2ac9d1e5fc, type: 3}
   - {fileID: 21300000, guid: b67f6b396b9afd8429edff8e2eb8aa2b, type: 3}
   portraitsFace: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1614242991}
   description: 
 --- !u!4 &2103496208
 Transform:

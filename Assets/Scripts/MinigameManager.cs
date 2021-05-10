@@ -6,6 +6,9 @@ using TMPro;
 
 public class MinigameManager : MonoBehaviour
 {
+    [Tooltip("Drag and drop the parent object of all stream menu elements.")]
+    public GameObject menuCanvas;
+
     [Header("Comment containers")]
     [Tooltip("Insert whatever parent directly holds the 2 game objects that are Yellow's sentences.")]
     public GameObject yellowsComments;
@@ -155,6 +158,6 @@ public class MinigameManager : MonoBehaviour
     void EndMinigame() {
         yellowsComments.SetActive(false);
         viewerComments.SetActive(false);
-        Debug.Log("Minigame has ended!");
+        menuCanvas.GetComponent<StreamMenuProtocol>().FinishProtocol(); //initiate the finish state of the minigame by calling the right function
     }
 }

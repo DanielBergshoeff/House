@@ -6,7 +6,7 @@ using TMPro;
 public class StreamCountdown : MonoBehaviour
 {
     public float secondsToCount = 3;
-    public GameObject startupCanvas;
+    public GameObject menuCanvas;
     public TextMeshProUGUI text;
     public GameObject button;
 
@@ -29,7 +29,7 @@ public class StreamCountdown : MonoBehaviour
         if(_remainingSeconds <= 0f) { //end the countdown
             gameObject.GetComponent<MinigameManager>().enabled = true; //enable the script that runs the meat of the minigame   
             //then disable canvas
-            startupCanvas.SetActive(false);
+            menuCanvas.SetActive(false);
 
             //set this inactive
         }

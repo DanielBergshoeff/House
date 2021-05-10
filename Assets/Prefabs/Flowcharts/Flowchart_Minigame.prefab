@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 8687915256441816003}
   - component: {fileID: 8687915256441816008}
   - component: {fileID: 8687915256441816011}
-  - component: {fileID: 8687915256441816010}
   - component: {fileID: 8687915256441816026}
   - component: {fileID: 8687915256441816029}
   - component: {fileID: 8687915256441816028}
@@ -28,7 +27,6 @@ GameObject:
   - component: {fileID: 8687915256441816016}
   - component: {fileID: 8687915256441816019}
   - component: {fileID: 8687915256441816021}
-  - component: {fileID: 8687915256441816009}
   - component: {fileID: 8687915256441816036}
   - component: {fileID: 8687915256441816039}
   - component: {fileID: 8687915256441816038}
@@ -41,7 +39,8 @@ GameObject:
   - component: {fileID: 8687915256441816037}
   - component: {fileID: 8687915256441816024}
   - component: {fileID: 8687915256441816027}
-  - component: {fileID: 6026349481838701904}
+  - component: {fileID: 4304583935822421407}
+  - component: {fileID: 2361064106709300265}
   m_Layer: 0
   m_Name: Flowchart_Minigame
   m_TagString: Untagged
@@ -308,19 +307,6 @@ MonoBehaviour:
     stringVal: Minigame_Stream
   loadingImage: {fileID: 0}
   sceneNameOLD: 
---- !u!65 &8687915256441816010
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8687915256441816005}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8687915256441816026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +355,7 @@ MonoBehaviour:
   itemId: 10
   blockName: Start
   description: 
-  eventHandler: {fileID: 6026349481838701904}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 8687915256441816031}
   - {fileID: 8687915256441816030}
@@ -480,7 +466,7 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 8687915256441816016}
-  - {fileID: 8687915256441816009}
+  - {fileID: 0}
   - {fileID: 8687915256441816027}
   suppressAllAutoSelections: 0
 --- !u!114 &8687915256441816016
@@ -549,36 +535,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 17
   indentLevel: 0
---- !u!114 &8687915256441816009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8687915256441816005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 22
-  indentLevel: 0
-  storyText: 'Need your help! It stream day! Gonna stream soon!
-
-    But I''m sooo
-    nervous...'
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 9029166e348abe74a87b3e5b5539f986, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &8687915256441816036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,7 +853,7 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
---- !u!114 &6026349481838701904
+--- !u!114 &4304583935822421407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -906,11 +862,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 8687915256441816005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b4d2ce0fcd12448ab6b4492be6ca77, type: 3}
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentBlock: {fileID: 8687915256441816029}
-  suppressBlockAutoSelect: 0
-  tagFilter: []
-  FireOn: 1
-  collisionVar: {fileID: 0}
+  itemId: 37
+  indentLevel: 0
+  storyText: 'Need your help! It stream day! Gonna stream soon!
+
+    But I''m sooo
+    nervous...'
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 9029166e348abe74a87b3e5b5539f986, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!135 &2361064106709300265
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8687915256441816005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: -0.5, z: 0}

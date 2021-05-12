@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Shade Emsigima
   productName: Home is where-?
   defaultCursor: {fileID: 2800000, guid: bd2136fc0d26e934a817579d1d9b6d78, type: 3}
   cursorHotspot: {x: 0, y: 0}
@@ -118,7 +118,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1
+  bundleVersion: 1.4
   preloadedAssets:
   - {fileID: 11400000, guid: 80bf674fab68c244398d79ac6e7321ae, type: 2}
   metroInputSource: 0

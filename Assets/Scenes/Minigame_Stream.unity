@@ -3926,7 +3926,7 @@ MonoBehaviour:
   neutralColor: {r: 0, g: 0, b: 0, a: 1}
   lerpModefier: 0.5
   phase: 0
-  phaseAmount: 8
+  phaseAmount: 9
   inPhase: 0
   lifetime: 7
   remainingLifetime: 0
@@ -3946,6 +3946,7 @@ GameObject:
   - component: {fileID: 3377415397501515687}
   - component: {fileID: 6326634418093311167}
   - component: {fileID: 8505978991529150703}
+  - component: {fileID: 8505978991529150704}
   m_Layer: 5
   m_Name: MinigameManager
   m_TagString: Untagged
@@ -3968,6 +3969,21 @@ MonoBehaviour:
   minigameManager: {fileID: 6326634418093311167}
   slider: {fileID: 9047934212466437845}
   health: 10
+--- !u!114 &8505978991529150704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8505978991529150702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9678141d619e5b045a199f93f3ef7512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  streamMenuProtocol: {fileID: 1078761973}
+  minigameManager: {fileID: 6326634418093311167}
+  skipPhases: 08000000
 --- !u!1 &9047934211038304107
 GameObject:
   m_ObjectHideFlags: 0

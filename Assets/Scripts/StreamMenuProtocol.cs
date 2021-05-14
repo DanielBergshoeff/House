@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;//do we need this?
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 //How to load scene:https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadSceneAsync.html
 
@@ -20,7 +21,7 @@ public class StreamMenuProtocol : MonoBehaviour
     //menu BG
     public GameObject menuBG; //this must be the gameobj, NOT an image component for we want to use this as a shield preventing the player from clicking anything behind it (buttons and the like)
 
-    public enum protocol { Start, Play, Finish };
+    public enum protocol { Start, Play, Skip, Finish };
     [Header("Testing purposes only")]
     public protocol currentProtocol;
 
@@ -82,6 +83,14 @@ public class StreamMenuProtocol : MonoBehaviour
         titleText.GetComponent<TextMeshProUGUI>().text = "End of the stream!";
         //display the button + set button text
         button.GetComponentInChildren<TextMeshProUGUI>().text = "Log out";
+    }
+
+    public void SkipProtocol() {
+        currentProtocol = protocol.Skip;
+        menuBG.SetActive(true);//to make text readable and hide animations in the back.
+        
+        titleText.GetComponent<TextMeshProUGUI>().text = "A few moments later...";
+        titleText.SetActive(true);
     }
 
     IEnumerator LoadYourAsyncScene()//copied this from unity. View link at the top for more info

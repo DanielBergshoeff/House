@@ -29,21 +29,17 @@ public class StreamButton : MonoBehaviour
             gameObject.GetComponentInChildren<TextMeshProUGUI>().text = buttonComment.Text;
 
             //set pos color
-            if (buttonComment.nature == Comment.Nature.Good || buttonComment.nature == Comment.Nature.Counter)
-            {
+            if (buttonComment.nature == Comment.Nature.Good || buttonComment.nature == Comment.Nature.Counter) {
                 gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.Lerp(minigameManager.positiveColor, minigameManager.neutralColor, (1f / minigameManager.lifetime+minigameManager.lerpModefier) * minigameManager.remainingLifetime);
             }
 
             //set neg color
-            if (buttonComment.nature == Comment.Nature.Bad || buttonComment.nature == Comment.Nature.Ruminate)
-            {
-                Debug.Log("lerping"+1f / minigameManager.remainingLifetime);
+            if (buttonComment.nature == Comment.Nature.Bad || buttonComment.nature == Comment.Nature.Ruminate) {
                 gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.Lerp(minigameManager.negativeColor, minigameManager.neutralColor, (1f/minigameManager.lifetime+minigameManager.lerpModefier)*minigameManager.remainingLifetime);
             }
 
             //set neutral color
-            if (buttonComment.nature == Comment.Nature.Neutral)
-            {
+            if (buttonComment.nature == Comment.Nature.Neutral) {
                 gameObject.GetComponentInChildren<TextMeshProUGUI>().color = minigameManager.neutralColor;
             }
         }

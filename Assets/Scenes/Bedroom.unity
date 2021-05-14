@@ -9687,7 +9687,7 @@ MonoBehaviour:
   storyTextGO: {fileID: 0}
   characterImage: {fileID: 28031611}
   fitTextWithImage: 0
-  closeOtherDialogs: 0
+  closeOtherDialogs: 1
 --- !u!224 &1614242992
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13953,7 +13953,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2620252858988231979}
-  m_LocalRotation: {x: 0.087113366, y: 0.9113597, z: -0.2540346, w: 0.31193155}
+  m_LocalRotation: {x: 0.08711449, y: 0.9113588, z: -0.25403786, w: 0.31193098}
   m_LocalPosition: {x: -10.434999, y: 5.9100003, z: 8.204999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14021,7 +14021,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2620252859640084280}
-  m_LocalRotation: {x: 0.087113366, y: 0.9113597, z: -0.2540346, w: 0.31193155}
+  m_LocalRotation: {x: 0.08711449, y: 0.9113588, z: -0.25403786, w: 0.31193098}
   m_LocalPosition: {x: -10.434999, y: 5.9100003, z: 8.204999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

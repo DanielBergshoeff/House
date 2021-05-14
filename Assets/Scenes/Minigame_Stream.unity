@@ -1704,6 +1704,7 @@ GameObject:
   - component: {fileID: 1078761970}
   - component: {fileID: 1078761969}
   - component: {fileID: 1078761973}
+  - component: {fileID: 1078761974}
   m_Layer: 5
   m_Name: Menu_Canvas
   m_TagString: Untagged
@@ -1811,6 +1812,19 @@ MonoBehaviour:
   button: {fileID: 1306061568}
   menuBG: {fileID: 483840044}
   currentProtocol: 0
+--- !u!114 &1078761974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078761968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccc5808ac80dfd4d85082755a170707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  streamCursor: {fileID: 2800000, guid: 71d21dd350add1243814d94443f8b73e, type: 3}
 --- !u!1 &1306061568
 GameObject:
   m_ObjectHideFlags: 0

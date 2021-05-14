@@ -88,7 +88,6 @@ public class StreamMenuProtocol : MonoBehaviour
     public void SkipProtocol() {
         currentProtocol = protocol.Skip;
         menuBG.SetActive(true);//to make text readable and hide animations in the back.
-        
         titleText.GetComponent<TextMeshProUGUI>().text = "A few moments later...";
         titleText.SetActive(true);
     }

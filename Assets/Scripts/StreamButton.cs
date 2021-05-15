@@ -53,24 +53,27 @@ public class StreamButton : MonoBehaviour
     public void CheckComment() {
         
         //add points if good comment
-        if (buttonComment.nature == Comment.Nature.Good) {
+        if (buttonComment.nature == Comment.Nature.Good && buttonComment.interactedWith == false) {
             streamHealth.Add(minigameManager.goodCommentValue);
             PlayTooltip("Highlighted!", minigameManager.positiveColor);
+            buttonComment.interactedWith = true;
         }
         
         //add points if counter comment
-        if (buttonComment.nature == Comment.Nature.Counter)
+        if (buttonComment.nature == Comment.Nature.Counter && buttonComment.interactedWith == false)
         {
             streamHealth.Add(minigameManager.counterValue);
             PlayTooltip("Counter found!", minigameManager.positiveColor);
+            buttonComment.interactedWith = true;
         }
 
 
         //neutralize bad comment to neutral if bad
-        if (buttonComment.nature == Comment.Nature.Bad)
+        if (buttonComment.nature == Comment.Nature.Bad && buttonComment.interactedWith == false)
         {
             buttonComment = minigameManager.emptyComment;
             PlayTooltip("Neutralized!", minigameManager.neutralColor);
+            buttonComment.interactedWith = true;
         }
 
         //VIEWER BUTTONS FUNCTIONALITY
@@ -81,21 +84,23 @@ public class StreamButton : MonoBehaviour
 
 
         //check yellow child 1
-        if (buttonComment.nature == Comment.Nature.Counter) { //if this buttons buttonComment was a counter
+        if (buttonComment.nature == Comment.Nature.Counter && buttonComment.interactedWith == false) { //if this buttons buttonComment was a counter
             if (minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) {
                 minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment = minigameManager.emptyComment;
                 PlayTooltip("Counter found!", minigameManager.positiveColor);
                 Debug.Log("Comment clicked was a counter on yellow comment 1");
+                buttonComment.interactedWith = true;
             }
         }
 
         //check yellow child 2
-        if (buttonComment.nature == Comment.Nature.Counter)
+        if (buttonComment.nature == Comment.Nature.Counter && buttonComment.interactedWith == false)
         { //if this buttons buttonComment was a counter
             if (minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) {
                 minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment = minigameManager.emptyComment;
                 PlayTooltip("Counter found!", minigameManager.positiveColor);
                 Debug.Log("Comment clicked was a counter on yellow comment 2");
+                buttonComment.interactedWith = true;
             }
         }
 

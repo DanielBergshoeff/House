@@ -13,4 +13,5 @@ public class Comment : ScriptableObject
     public enum Nature { Neutral, Good, Bad, Counter, Ruminate };
     public Nature nature;
     public string Text = "Insert speaker's text";
+    public bool interactedWith = false;
 }

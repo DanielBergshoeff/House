@@ -32,6 +32,7 @@ public class MinigameManager : MonoBehaviour
     public Color negativeColor;
     public Color neutralColor;
     public float lerpModefier = 0.5f;
+    public GameObject goodCommentClickEffect;
 
     [Header("Minigame values")]
     public int phase = 0;

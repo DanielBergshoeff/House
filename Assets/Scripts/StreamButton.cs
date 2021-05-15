@@ -57,6 +57,9 @@ public class StreamButton : MonoBehaviour
             streamHealth.Add(minigameManager.goodCommentValue);
             PlayTooltip("Highlighted!", minigameManager.positiveColor);
             buttonComment.interactedWith = true;
+
+            //play the right effect
+            Instantiate(minigameManager.goodCommentClickEffect, transform);
         }
         
         //add points if counter comment
@@ -104,8 +107,6 @@ public class StreamButton : MonoBehaviour
             }
         }
 
-       
-
         //RUMINATES:
         if (buttonComment.nature == Comment.Nature.Ruminate) { //if the nature of this comment was ruminate,
             PlayTooltip("Cannot ban, find a counter!", minigameManager.negativeColor);
@@ -118,7 +119,6 @@ public class StreamButton : MonoBehaviour
             minigameManager.tooltip.GetComponentInChildren<TextMeshProUGUI>().color = color; //set color
             minigameManager.tooltipCanvas.GetComponent<Animator>().SetTrigger("play");
             }
-        
     }
 
 }

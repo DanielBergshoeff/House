@@ -6,12 +6,14 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
+    [Header("Player sounds")]
     public AudioClip PlayerRun;
     public AudioClip PlayerWalk;
     public AudioClip Bounce;
     public AudioClip Impact;
     public AudioClip Chair;
     public AudioClip Glider;
+
 
     // Start is called before the first frame update
     void Start()

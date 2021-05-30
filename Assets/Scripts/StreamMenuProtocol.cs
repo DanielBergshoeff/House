@@ -28,7 +28,7 @@ public class StreamMenuProtocol : MonoBehaviour
     [Header("Countdown variables")]
     public float secondsToCount = 3;
     private float _remainingSeconds;
-    private int currentSecond = 4;
+    private int currentSecond = 3;
 
     private void Awake()
     {

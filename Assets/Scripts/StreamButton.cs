@@ -31,6 +31,7 @@ public class StreamButton : MonoBehaviour
             //set pos color
             if (buttonComment.nature == Comment.Nature.Good || buttonComment.nature == Comment.Nature.Counter) {
                 gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.Lerp(minigameManager.positiveColor, minigameManager.neutralColor, (1f / minigameManager.lifetime+minigameManager.lerpModefier) * minigameManager.remainingLifetime);
+                //set the sound
             }
 
             //set neg color

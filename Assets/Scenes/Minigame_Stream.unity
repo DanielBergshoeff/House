@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 19958656}
   - component: {fileID: 19958655}
   - component: {fileID: 19958658}
+  - component: {fileID: 19958659}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -266,6 +267,34 @@ MonoBehaviour:
   minigameManager: {fileID: 6326634418093311167}
   streamHealth: {fileID: 8505978991529150703}
   buttonComment: {fileID: 0}
+--- !u!114 &19958659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19958653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 239248584}
+          m_MethodName: playHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &40303923
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +405,7 @@ MonoBehaviour:
   badSound: {fileID: 8300000, guid: 83cc22384809a3040a64df54b8e64e42, type: 3}
   counterSound: {fileID: 8300000, guid: c91b795431d966444a8da1681fef11aa, type: 3}
   ruminateSound: {fileID: 8300000, guid: 10944fbbdf82ccf419cf9dfae86bf4c4, type: 3}
-  hoverComment: {fileID: 0}
+  hoverComment: {fileID: 8300000, guid: 431e8658f1c62bc449f599eb8ffadcd0, type: 3}
   countdownTick: {fileID: 8300000, guid: b8ed86ef0e3060c46a12fa83c5a01c74, type: 3}
   countdownEnd: {fileID: 8300000, guid: 9216b6f275b00df4a9d313ae4682dc91, type: 3}
   mainHPTrack: {fileID: 8300000, guid: 9c9a167fa29a68e44a53f404ce792da7, type: 3}
@@ -1518,6 +1547,7 @@ GameObject:
   - component: {fileID: 755147305}
   - component: {fileID: 755147304}
   - component: {fileID: 755147303}
+  - component: {fileID: 755147307}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -1650,6 +1680,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755147301}
   m_CullTransparentMesh: 0
+--- !u!114 &755147307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755147301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 239248584}
+          m_MethodName: playHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &863360511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2572,7 @@ GameObject:
   - component: {fileID: 1311585253}
   - component: {fileID: 1311585252}
   - component: {fileID: 1311585251}
+  - component: {fileID: 1311585255}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -2646,6 +2705,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311585249}
   m_CullTransparentMesh: 0
+--- !u!114 &1311585255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311585249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 239248584}
+          m_MethodName: playHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1450699786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3675,6 +3762,7 @@ GameObject:
   - component: {fileID: 3119345509404764662}
   - component: {fileID: 3119345509404764663}
   - component: {fileID: 3119345509404764659}
+  - component: {fileID: 3119345509404764660}
   m_Layer: 5
   m_Name: SEN_Neutral Variant
   m_TagString: Untagged
@@ -3697,6 +3785,34 @@ MonoBehaviour:
   minigameManager: {fileID: 6326634418093311167}
   streamHealth: {fileID: 8505978991529150703}
   buttonComment: {fileID: 0}
+--- !u!114 &3119345509404764660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119345509404764658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 239248584}
+          m_MethodName: playHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!224 &3119345509404764661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4085,6 +4201,7 @@ GameObject:
   - component: {fileID: 3119345510269873882}
   - component: {fileID: 3119345510269873883}
   - component: {fileID: 3119345510269873887}
+  - component: {fileID: 3119345510269873888}
   m_Layer: 5
   m_Name: SEN_Neutral Variant (1)
   m_TagString: Untagged
@@ -4107,6 +4224,34 @@ MonoBehaviour:
   minigameManager: {fileID: 6326634418093311167}
   streamHealth: {fileID: 8505978991529150703}
   buttonComment: {fileID: 0}
+--- !u!114 &3119345510269873888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119345510269873886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 239248584}
+          m_MethodName: playHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &3123449599061846122
 Transform:
   m_ObjectHideFlags: 0
@@ -4620,6 +4765,7 @@ MonoBehaviour:
   slider: {fileID: 9047934212466437845}
   fill: {fileID: 9047934211038304109}
   health: 10
+  maxHealth: 10
   dangerThreshold: 9
 --- !u!114 &8505978991529150704
 MonoBehaviour:

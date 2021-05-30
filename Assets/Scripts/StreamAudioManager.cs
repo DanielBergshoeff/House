@@ -53,4 +53,8 @@ public class StreamAudioManager : MonoBehaviour
         Debug.Log("Fading out");
         subSource.volume = 0;
     }
+
+    public void playHover() {
+        mainSource.PlayOneShot(hoverComment);
+    }
 }

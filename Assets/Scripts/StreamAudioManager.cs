@@ -50,6 +50,7 @@ public class StreamAudioManager : MonoBehaviour
     }
 
     public void fadeOutLowHPTrack() {
+        Debug.Log("Fading out");
         subSource.volume = 0;
     }
 }

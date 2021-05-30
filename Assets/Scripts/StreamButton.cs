@@ -58,7 +58,7 @@ public class StreamButton : MonoBehaviour
             streamHealth.Add(minigameManager.goodCommentValue);
             PlayTooltip("Highlighted!", minigameManager.positiveColor);
             minigameManager.audioManager.playSound(minigameManager.audioManager.goodSound);
-            buttonComment.interactedWith = true;
+            //buttonComment.interactedWith = true;
 
             //play the right effect
             Instantiate(minigameManager.goodCommentClickEffect, transform);
@@ -70,7 +70,7 @@ public class StreamButton : MonoBehaviour
             streamHealth.Add(minigameManager.counterValue);
             PlayTooltip("Counter found!", minigameManager.positiveColor);
             minigameManager.audioManager.playSound(minigameManager.audioManager.counterSound);
-            buttonComment.interactedWith = true;
+            //buttonComment.interactedWith = true;
         }
 
 
@@ -78,9 +78,9 @@ public class StreamButton : MonoBehaviour
         if (buttonComment.nature == Comment.Nature.Bad && buttonComment.interactedWith == false)
         {
             buttonComment = minigameManager.emptyComment;
+            //buttonComment.interactedWith = true;
             PlayTooltip("Neutralized!", minigameManager.neutralColor);
             minigameManager.audioManager.playSound(minigameManager.audioManager.badSound);
-            buttonComment.interactedWith = true;
         }
 
         //VIEWER BUTTONS FUNCTIONALITY
@@ -94,9 +94,9 @@ public class StreamButton : MonoBehaviour
         if (buttonComment.nature == Comment.Nature.Counter && buttonComment.interactedWith == false) { //if this buttons buttonComment was a counter
             if (minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) {
                 minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment = minigameManager.emptyComment;
+                //buttonComment.interactedWith = true;
                 PlayTooltip("Counter found!", minigameManager.positiveColor);
                 Debug.Log("Comment clicked was a counter on yellow comment 1");
-                buttonComment.interactedWith = true;
             }
         }
 
@@ -105,9 +105,9 @@ public class StreamButton : MonoBehaviour
         { //if this buttons buttonComment was a counter
             if (minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) {
                 minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment = minigameManager.emptyComment;
+                //buttonComment.interactedWith = true;
                 PlayTooltip("Counter found!", minigameManager.positiveColor);
                 Debug.Log("Comment clicked was a counter on yellow comment 2");
-                buttonComment.interactedWith = true;
             }
         }
 

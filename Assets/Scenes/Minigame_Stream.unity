@@ -4618,6 +4618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameManager: {fileID: 6326634418093311167}
   slider: {fileID: 9047934212466437845}
+  fill: {fileID: 9047934211038304109}
   health: 10
   dangerThreshold: 9
 --- !u!114 &8505978991529150704

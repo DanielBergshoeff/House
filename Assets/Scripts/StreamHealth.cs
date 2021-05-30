@@ -9,7 +9,10 @@ public class StreamHealth : MonoBehaviour
 {
     public MinigameManager minigameManager;
     public Slider slider;
+    public Image fill;
+
     public int health = 10;
+    public int maxHealth = 10;
     [Tooltip("The point where a certain level of health warns you how low it is using an audio track that mixes with the main track. See AudioManager object in heirarchy.")]
     public float dangerThreshold = 4;
 
@@ -19,6 +22,9 @@ public class StreamHealth : MonoBehaviour
     private void Update()
     {
         checkDangerThreshold(); //in case we need to change the volume of low HP music
+        if (health > maxHealth) {//make sure players can never stack health above maximum
+            health = 10;
+        }
     }
 
     public void Subtract(int value) {
@@ -73,10 +79,12 @@ public class StreamHealth : MonoBehaviour
         if (health > dangerThreshold /*&& audioManager.fadingIn == false*/)
         {
             minigameManager.audioManager.fadeOutLowHPTrack();
+            fill.color = Color.white;
         }
-        if (health < dangerThreshold /*&& audioManager.fadingIn == true*/)
+        if (health <= dangerThreshold /*&& audioManager.fadingIn == true*/)
         {
             minigameManager.audioManager.fadeInLowHPTrack();
+            fill.color = Color.red;
         }
     }
 }

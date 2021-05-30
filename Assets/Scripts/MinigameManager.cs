@@ -58,7 +58,8 @@ public class MinigameManager : MonoBehaviour
 
     public void Awake()
     {
-        
+        emptyComment.interactedWith = false;//make sure they are all 'untouched'
+
         //this makes sure you start the minigame at max health
         slider.maxValue = health;
         slider.value = health;
@@ -150,6 +151,7 @@ public class MinigameManager : MonoBehaviour
             yellowsComments.transform.GetChild(i).GetComponent<StreamButton>().buttonComment = emptyComment;
         }
 
+       
         //have Yellows comments animation disabled, so it will play next time it gets enabled, holding new text.
         yellowsComments.GetComponent<Animator>().SetBool("slideIn", false);
         viewersCommentCover.GetComponent<Animator>().SetBool("reveal", false);

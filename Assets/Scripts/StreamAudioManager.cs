@@ -11,7 +11,9 @@ using UnityEngine;
 
 public class StreamAudioManager : MonoBehaviour  
 {
-    public AudioSource audioSource;
+    public AudioSource mainSource;
+    public AudioSource subSource;
+    public bool fadingIn = false;
 
     [Header("Nature sounds")]
     public AudioClip goodSound;
@@ -30,13 +32,38 @@ public class StreamAudioManager : MonoBehaviour
 
     private void Start()
     {
-        //why did this not work?
-        //AudioSource audioSource = GetComponent<AudioSource>();
+        mainSource.clip = mainHPTrack;
+        mainSource.Play();
+
+        subSource.clip = lowHPTrack;
+        subSource.volume = 0;
+        subSource.Play();
     }
 
-    public void playSound(AudioClip sound)
-    {   
+    private void Update()
+    {
+        //if (fadingIn == true && subSource.volume <= 1) { //slowly increase low HP track volume
+        //    subSource.volume += 1 * Time.deltaTime;
+        //}
 
-        audioSource.PlayOneShot(sound);
+        //if (fadingIn == false && subSource.volume >= 0) { //slowly decrease low HP track volume
+        //    subSource.volume -= 1 * Time.deltaTime;
+        //}
+    }
+
+    public void playSound(AudioClip sound) {
+        mainSource.PlayOneShot(sound);
+    }
+
+    public void fadeInLowHPTrack() {
+        //fadingIn = true;
+        subSource.volume = Mathf.Lerp(0, 1, 1 * Time.deltaTime);
+    }
+
+    public void fadeOutLowHPTrack()
+    {
+        //fadingIn = false;
+
+        subSource.volume = Mathf.Lerp(1, 0, 1 * Time.deltaTime);
     }
 }

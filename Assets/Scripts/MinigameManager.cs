@@ -21,6 +21,8 @@ public class MinigameManager : MonoBehaviour
     
     public Slider slider;
     public int health = 10;
+    [Tooltip("The point where a certain level of health warns you how low it is using an audio track that mixes with the main track. See AudioManager object in heirarchy.")]
+    public float dangerThreshold = 4;
 
     [Header("Comment values")]
     public int badCommentValue = 1; //for some reason, negative numbers become positive when bounced between scripts. The - is now thrown in the StreamComments script.
@@ -76,6 +78,8 @@ public class MinigameManager : MonoBehaviour
 
     public void Update()
     {
+        checkDangerThreshold(); //in case we need to change the volume of low HP music
+
         if (!inPhase && phase != phaseAmount + 1) {
             StartPhase();
         }
@@ -155,7 +159,17 @@ public class MinigameManager : MonoBehaviour
         inPhase = false;
         phase += 1;
     }
-  
+
+    void checkDangerThreshold() {
+        if (health > dangerThreshold /*&& audioManager.fadingIn == false*/)
+        { //as long as we arent already fading in
+            audioManager.fadeOutLowHPTrack();
+        }
+        if (health < dangerThreshold /*&& audioManager.fadingIn == true*/)
+        { //as long as we arent already fading in
+            audioManager.fadeInLowHPTrack();
+        }
+    }
 
     void EndMinigame() {
         yellowsComments.SetActive(false);

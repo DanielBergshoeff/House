@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-//this script sits on 
+//this script sits on...?
 public class StreamCountdown : MonoBehaviour
 {
     public float secondsToCount = 3;
@@ -14,9 +14,7 @@ public class StreamCountdown : MonoBehaviour
     private bool _counting = false;
     private float _remainingSeconds;
 
-    private void Awake()
-    {
-        Debug.Log(transform.name);
+    private void Awake() {
         _remainingSeconds = secondsToCount;
     }
 

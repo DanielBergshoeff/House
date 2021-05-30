@@ -8,6 +8,7 @@ public class MinigameManager : MonoBehaviour
 {
     [Tooltip("Drag and drop the parent object of all stream menu elements.")]
     public GameObject menuCanvas;
+    public StreamAudioManager audioManager;
 
     [Header("Comment containers")]
     [Tooltip("Insert whatever parent directly holds the 2 game objects that are Yellow's sentences.")]

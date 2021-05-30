@@ -57,6 +57,7 @@ public class StreamButton : MonoBehaviour
         if (buttonComment.nature == Comment.Nature.Good && buttonComment.interactedWith == false) {
             streamHealth.Add(minigameManager.goodCommentValue);
             PlayTooltip("Highlighted!", minigameManager.positiveColor);
+            minigameManager.audioManager.playSound(minigameManager.audioManager.goodSound);
             buttonComment.interactedWith = true;
 
             //play the right effect
@@ -68,6 +69,7 @@ public class StreamButton : MonoBehaviour
         {
             streamHealth.Add(minigameManager.counterValue);
             PlayTooltip("Counter found!", minigameManager.positiveColor);
+            minigameManager.audioManager.playSound(minigameManager.audioManager.counterSound);
             buttonComment.interactedWith = true;
         }
 
@@ -77,6 +79,7 @@ public class StreamButton : MonoBehaviour
         {
             buttonComment = minigameManager.emptyComment;
             PlayTooltip("Neutralized!", minigameManager.neutralColor);
+            minigameManager.audioManager.playSound(minigameManager.audioManager.badSound);
             buttonComment.interactedWith = true;
         }
 
@@ -111,6 +114,7 @@ public class StreamButton : MonoBehaviour
         //RUMINATES:
         if (buttonComment.nature == Comment.Nature.Ruminate) { //if the nature of this comment was ruminate,
             PlayTooltip("Cannot ban, find a counter!", minigameManager.negativeColor);
+            minigameManager.audioManager.playSound(minigameManager.audioManager.ruminateSound);
             Debug.Log("Find a counter comment!"); //hint the player in a text to look for the right counter
         }
 

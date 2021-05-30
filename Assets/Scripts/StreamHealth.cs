@@ -10,9 +10,17 @@ public class StreamHealth : MonoBehaviour
     public MinigameManager minigameManager;
     public Slider slider;
     public int health = 10;
+    [Tooltip("The point where a certain level of health warns you how low it is using an audio track that mixes with the main track. See AudioManager object in heirarchy.")]
+    public float dangerThreshold = 4;
 
 
     private int _phasePoints; //the total points that will be added to the total health at the end of a round
+
+    private void Update()
+    {
+        checkDangerThreshold(); //in case we need to change the volume of low HP music
+    }
+
     public void Subtract(int value) {
         Debug.Log("Gonna subtract " + value);
         health -= value;
@@ -59,5 +67,16 @@ public class StreamHealth : MonoBehaviour
         //health += _phasePoints;
         //sets the value or referenced slider to current health
         slider.value = health;
+    }
+    void checkDangerThreshold()
+    {
+        if (health > dangerThreshold /*&& audioManager.fadingIn == false*/)
+        {
+            minigameManager.audioManager.fadeOutLowHPTrack();
+        }
+        if (health < dangerThreshold /*&& audioManager.fadingIn == true*/)
+        {
+            minigameManager.audioManager.fadeInLowHPTrack();
+        }
     }
 }

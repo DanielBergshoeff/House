@@ -30,7 +30,7 @@ public class StreamAudioManager : MonoBehaviour
     public AudioClip mainHPTrack;
     public AudioClip lowHPTrack;
 
-    private void Start()
+    private void Awake()
     {
         mainSource.clip = mainHPTrack;
         mainSource.Play();
@@ -40,30 +40,16 @@ public class StreamAudioManager : MonoBehaviour
         subSource.Play();
     }
 
-    private void Update()
-    {
-        //if (fadingIn == true && subSource.volume <= 1) { //slowly increase low HP track volume
-        //    subSource.volume += 1 * Time.deltaTime;
-        //}
-
-        //if (fadingIn == false && subSource.volume >= 0) { //slowly decrease low HP track volume
-        //    subSource.volume -= 1 * Time.deltaTime;
-        //}
-    }
 
     public void playSound(AudioClip sound) {
         mainSource.PlayOneShot(sound);
     }
 
     public void fadeInLowHPTrack() {
-        //fadingIn = true;
-        subSource.volume = Mathf.Lerp(0, 1, 1 * Time.deltaTime);
+        subSource.volume = 1;
     }
 
-    public void fadeOutLowHPTrack()
-    {
-        //fadingIn = false;
-
-        subSource.volume = Mathf.Lerp(1, 0, 1 * Time.deltaTime);
+    public void fadeOutLowHPTrack() {
+        subSource.volume = 0;
     }
 }

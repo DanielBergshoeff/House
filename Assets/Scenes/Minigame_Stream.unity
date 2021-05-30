@@ -4564,7 +4564,6 @@ MonoBehaviour:
   emptyComment: {fileID: 11400000, guid: ab3c80cc2fa45f44fa858415e6e3811c, type: 2}
   slider: {fileID: 9047934212466437845}
   health: 10
-  dangerThreshold: 9
   badCommentValue: 1
   goodCommentValue: 1
   ruminateValue: 2
@@ -4620,6 +4619,7 @@ MonoBehaviour:
   minigameManager: {fileID: 6326634418093311167}
   slider: {fileID: 9047934212466437845}
   health: 10
+  dangerThreshold: 9
 --- !u!114 &8505978991529150704
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ public class StreamMenuProtocol : MonoBehaviour
     [Header("Countdown variables")]
     public float secondsToCount = 3;
     private float _remainingSeconds;
+    private int currentSecond = 4;
 
     private void Awake()
     {
@@ -40,12 +41,14 @@ public class StreamMenuProtocol : MonoBehaviour
         if (currentProtocol == protocol.Count && _remainingSeconds >= 0f)
         {
             _remainingSeconds -= 1 * Time.deltaTime;
-            //play sound
-            minigameManager.GetComponent<MinigameManager>().audioManager.playSound(minigameManager.GetComponent<MinigameManager>().audioManager.countdownTick);
-
-            for (int i = 0; i < secondsToCount; i++) {
-                
+            //play sound every second
+            if(currentSecond >=  (int)_remainingSeconds) {
+                minigameManager.GetComponent<MinigameManager>().audioManager.playSound(minigameManager.GetComponent<MinigameManager>().audioManager.countdownTick);
+                currentSecond -= 1;
             }
+            
+
+            
 
             //update the number 
             titleText.GetComponent<TextMeshProUGUI>().text = "Stream starting in: " + _remainingSeconds.ToString("0");//"0" makes sure it displays in full numbers. if you use "0.0" it will just show one decimal etc.

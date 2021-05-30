@@ -375,8 +375,8 @@ MonoBehaviour:
   counterSound: {fileID: 8300000, guid: c91b795431d966444a8da1681fef11aa, type: 3}
   ruminateSound: {fileID: 8300000, guid: 10944fbbdf82ccf419cf9dfae86bf4c4, type: 3}
   hoverComment: {fileID: 0}
-  countdownTick: {fileID: 0}
-  countdownEnd: {fileID: 0}
+  countdownTick: {fileID: 8300000, guid: b8ed86ef0e3060c46a12fa83c5a01c74, type: 3}
+  countdownEnd: {fileID: 8300000, guid: 9216b6f275b00df4a9d313ae4682dc91, type: 3}
   mainHPTrack: {fileID: 0}
   lowHPTrack: {fileID: 0}
 --- !u!82 &239248585
@@ -2134,7 +2134,8 @@ MonoBehaviour:
   titleText: {fileID: 309498364}
   button: {fileID: 1306061568}
   menuBG: {fileID: 483840044}
-  currentProtocol: 0
+  currentProtocol: 1
+  secondsToCount: 3
 --- !u!114 &1078761974
 MonoBehaviour:
   m_ObjectHideFlags: 0

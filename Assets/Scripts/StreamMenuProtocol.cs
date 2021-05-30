@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 //How to load scene:https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadSceneAsync.html
 
-//this script sits on the parent that holds all stream menu elements
+//this script sits on the parent that holds all stream menu elements "Menu_Canvas"
 
 public class StreamMenuProtocol : MonoBehaviour
 {
@@ -21,14 +21,50 @@ public class StreamMenuProtocol : MonoBehaviour
     //menu BG
     public GameObject menuBG; //this must be the gameobj, NOT an image component for we want to use this as a shield preventing the player from clicking anything behind it (buttons and the like)
 
-    public enum protocol { Start, Play, Skip, Finish };
+    public enum protocol { Count, Start, Play, Skip, Finish };
     [Header("Testing purposes only")]
     public protocol currentProtocol;
 
+    [Header("Countdown variables")]
+    public float secondsToCount = 3;
+    private float _remainingSeconds;
 
     private void Awake()
     {
+        _remainingSeconds = secondsToCount;
         StartProtocol();
+    }
+
+    private void Update()
+    {
+        if (currentProtocol == protocol.Count && _remainingSeconds >= 0f)
+        {
+            _remainingSeconds -= 1 * Time.deltaTime;
+            //play sound
+            minigameManager.GetComponent<MinigameManager>().audioManager.playSound(minigameManager.GetComponent<MinigameManager>().audioManager.countdownTick);
+
+            for (int i = 0; i < secondsToCount; i++) {
+                
+            }
+
+            //update the number 
+            titleText.GetComponent<TextMeshProUGUI>().text = "Stream starting in: " + _remainingSeconds.ToString("0");//"0" makes sure it displays in full numbers. if you use "0.0" it will just show one decimal etc.
+
+
+            if (_remainingSeconds <= 0f)
+            { //end the countdown
+
+                minigameManager.GetComponent<MinigameManager>().enabled = true; //enable the script that runs the meat of the minigame
+                //then disable canvas
+                //menuCanvas.SetActive(false);
+                //minigameManager.audio
+
+                minigameManager.GetComponent<MinigameManager>().audioManager.playSound(minigameManager.GetComponent<MinigameManager>().audioManager.countdownEnd);
+                currentProtocol = protocol.Play; //change from the current protocol to the new one
+                PlayProtocol(); //initiate the functionalities of the next protocol
+        }
+            }
+           
     }
     public void StartProtocol()
     {
@@ -46,12 +82,11 @@ public class StreamMenuProtocol : MonoBehaviour
 
     public void clickedIt()
     {
-        //no lets allow it to do what needs to be done depending on the current protocol.
-        if (currentProtocol == protocol.Start)
-        {
-            currentProtocol = protocol.Play; //change from the current protocol to the new one
-            PlayProtocol(); //initiate the functionalities of the next protocol
+        if (currentProtocol == protocol.Start) {
+            currentProtocol = protocol.Count;
+            button.SetActive(false); //hide the button since u dont need it for now
         }
+
         if (currentProtocol == protocol.Finish)
         {
             //load overworld scene
@@ -65,7 +100,6 @@ public class StreamMenuProtocol : MonoBehaviour
         //hide all this stuff
         menuBG.SetActive(false);
         titleText.SetActive(false);
-        button.SetActive(false);
         minigameManager.GetComponent<MinigameManager>().enabled = true;
     }
 

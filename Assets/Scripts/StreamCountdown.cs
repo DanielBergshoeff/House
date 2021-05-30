@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//this script sits on 
 public class StreamCountdown : MonoBehaviour
 {
     public float secondsToCount = 3;
@@ -15,6 +16,7 @@ public class StreamCountdown : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log(transform.name);
         _remainingSeconds = secondsToCount;
     }
 
@@ -23,10 +25,12 @@ public class StreamCountdown : MonoBehaviour
         if (_counting == true) {
             _remainingSeconds -= 1 * Time.deltaTime;
             //update the number 
+            
             text.text = "Stream starting in: " + _remainingSeconds.ToString("0");//"0" makes sure it displays in full numbers. if you use "0.0" it will just show one decimal etc.
         }
 
         if(_remainingSeconds <= 0f) { //end the countdown
+            
             gameObject.GetComponent<MinigameManager>().enabled = true; //enable the script that runs the meat of the minigame   
             //then disable canvas
             menuCanvas.SetActive(false);

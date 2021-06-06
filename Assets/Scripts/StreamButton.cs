@@ -19,7 +19,7 @@ public class StreamButton : MonoBehaviour
     private void Awake()
     {
         ////this makes sure console dont go flippin if there aint no comment
-        //buttonComment = minigameManager.emptyComment;
+        buttonComment = minigameManager.emptyComment;
     }
 
     private void Update()

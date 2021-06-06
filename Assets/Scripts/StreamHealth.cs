@@ -40,8 +40,10 @@ public class StreamHealth : MonoBehaviour
     {
         
         int childCountB = minigameManager.viewerComments.transform.childCount;
+        Debug.Log("Childcount is " + childCountB);
         for (int i = 0; i < childCountB; i++)
         {
+            Debug.Log(minigameManager.viewerComments.transform.GetChild(i).GetComponent<StreamButton>().buttonComment.Text);
             //subtract viewers bad comments
             if (minigameManager.viewerComments.transform.GetChild(i).GetComponent<StreamButton>().buttonComment.nature == Comment.Nature.Bad)
             {

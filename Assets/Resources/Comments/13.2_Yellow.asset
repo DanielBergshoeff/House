@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7785c01362190d44a70f27ab1bb5233, type: 3}
-  m_Name: 9.2_Yellow
+  m_Name: 13.2_Yellow
   m_EditorClassIdentifier: 
   speaker: 0
-  Phase: 9
-  nature: 4
-  Text: Its confirmed, I am a failure.
+  Phase: 0
+  nature: 0
+  Text: They don't watch my streams though.
   interactedWith: 0

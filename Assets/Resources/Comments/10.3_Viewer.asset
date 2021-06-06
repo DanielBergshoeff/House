@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7785c01362190d44a70f27ab1bb5233, type: 3}
-  m_Name: 9.2_Yellow
+  m_Name: 10.3_Viewer
   m_EditorClassIdentifier: 
-  speaker: 0
-  Phase: 9
-  nature: 4
-  Text: Its confirmed, I am a failure.
+  speaker: 1
+  Phase: 0
+  nature: 2
+  Text: Let's see if you suck at everything.
   interactedWith: 0

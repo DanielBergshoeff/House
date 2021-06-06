@@ -6370,7 +6370,7 @@ MonoBehaviour:
   goodCommentClickEffect: {fileID: 3524136145520509778, guid: 7e24114204bd1ef44b1e2f1ac05dde33,
     type: 3}
   phase: 0
-  phaseAmount: 13
+  phaseAmount: 14
   inPhase: 0
   lifetime: 7
   remainingLifetime: 0

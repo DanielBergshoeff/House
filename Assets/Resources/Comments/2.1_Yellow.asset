@@ -15,4 +15,5 @@ MonoBehaviour:
   speaker: 0
   Phase: 2
   nature: 0
-  Text: Shame I lost,
+  Text: Shame I lost...
+  interactedWith: 0

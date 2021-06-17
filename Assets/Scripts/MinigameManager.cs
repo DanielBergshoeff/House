@@ -46,9 +46,13 @@ public class MinigameManager : MonoBehaviour
     public float remainingLifetime;
     bool runLifetime = false;
 
-    [Header("Tooltip settings")]
-    public Canvas tooltipCanvas;
-    public GameObject tooltip;
+    [Header("Effects settings")]
+    public Canvas effectsCanvas;
+    public GameObject effectsObj;
+    public Sprite highlightedEffect;
+    public Sprite bannedEfect;
+    public Sprite counterEffect;
+    public Sprite ruminateEffect;
 
     [Header("Dirty hacky code")]
     public GameObject yellowChild1;

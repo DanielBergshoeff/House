@@ -56,7 +56,7 @@ public class StreamButton : MonoBehaviour
         //add points if good comment
         if (buttonComment.nature == Comment.Nature.Good && buttonComment.interactedWith == false) {
             streamHealth.Add(minigameManager.goodCommentValue);
-            PlayTooltip("Highlighted!", minigameManager.positiveColor);
+            PlayTooltip("Highlighted!", minigameManager.highlightedEffect);
             minigameManager.audioManager.playSound(minigameManager.audioManager.goodSound);
             //buttonComment.interactedWith = true;
 
@@ -68,7 +68,7 @@ public class StreamButton : MonoBehaviour
         if (buttonComment.nature == Comment.Nature.Counter && buttonComment.interactedWith == false)
         {
             streamHealth.Add(minigameManager.counterValue);
-            PlayTooltip("Counter found!", minigameManager.positiveColor);
+            PlayTooltip("Counter found!", minigameManager.counterEffect);
             minigameManager.audioManager.playSound(minigameManager.audioManager.counterSound);
             //buttonComment.interactedWith = true;
         }
@@ -79,7 +79,7 @@ public class StreamButton : MonoBehaviour
         {
             buttonComment = minigameManager.emptyComment;
             //buttonComment.interactedWith = true;
-            PlayTooltip("Neutralized!", minigameManager.neutralColor);
+            PlayTooltip("Neutralized!", minigameManager.bannedEfect);
             minigameManager.audioManager.playSound(minigameManager.audioManager.badSound);
         }
 
@@ -95,7 +95,7 @@ public class StreamButton : MonoBehaviour
             if (minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) {
                 minigameManager.yellowChild1.GetComponentInChildren<StreamButton>().buttonComment = minigameManager.emptyComment;
                 //buttonComment.interactedWith = true;
-                PlayTooltip("Counter found!", minigameManager.positiveColor);
+                PlayTooltip("Counter found!", minigameManager.counterEffect);
                 Debug.Log("Comment clicked was a counter on yellow comment 1");
             }
         }
@@ -106,23 +106,22 @@ public class StreamButton : MonoBehaviour
             if (minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment.nature == Comment.Nature.Ruminate) {
                 minigameManager.yellowChild2.GetComponentInChildren<StreamButton>().buttonComment = minigameManager.emptyComment;
                 //buttonComment.interactedWith = true;
-                PlayTooltip("Counter found!", minigameManager.positiveColor);
+                PlayTooltip("Counter found!", minigameManager.counterEffect);
                 Debug.Log("Comment clicked was a counter on yellow comment 2");
             }
         }
 
         //RUMINATES:
         if (buttonComment.nature == Comment.Nature.Ruminate) { //if the nature of this comment was ruminate,
-            PlayTooltip("Cannot ban, find a counter!", minigameManager.negativeColor);
+            PlayTooltip("Cannot ban, find a counter!", minigameManager.ruminateEffect);
             minigameManager.audioManager.playSound(minigameManager.audioManager.ruminateSound);
             Debug.Log("Find a counter comment!"); //hint the player in a text to look for the right counter
         }
 
-         void PlayTooltip(string text, Color color){
-            minigameManager.tooltip.transform.position = gameObject.transform.position; //then set the pos of tooltip base off the comment you clicked
-            minigameManager.tooltip.GetComponentInChildren<TextMeshProUGUI>().text = text; //set text
-            minigameManager.tooltip.GetComponentInChildren<TextMeshProUGUI>().color = color; //set color
-            minigameManager.tooltipCanvas.GetComponent<Animator>().SetTrigger("play");
+         void PlayTooltip(string text, Sprite image){
+            minigameManager.effectsObj.transform.position = gameObject.transform.position; //then set the pos of tooltip based off of the comment you clicked
+            minigameManager.effectsObj.GetComponent<Image>().sprite = image; //set the right image
+            minigameManager.effectsCanvas.GetComponent<Animator>().SetTrigger("play");
             }
     }
 

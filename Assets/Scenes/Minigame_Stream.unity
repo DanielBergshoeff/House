@@ -718,8 +718,8 @@ MonoBehaviour:
   counterSound: {fileID: 8300000, guid: c91b795431d966444a8da1681fef11aa, type: 3}
   ruminateSound: {fileID: 8300000, guid: 10944fbbdf82ccf419cf9dfae86bf4c4, type: 3}
   hoverComment: {fileID: 8300000, guid: 431e8658f1c62bc449f599eb8ffadcd0, type: 3}
-  countdownTick: {fileID: 8300000, guid: b8ed86ef0e3060c46a12fa83c5a01c74, type: 3}
-  countdownEnd: {fileID: 8300000, guid: 9216b6f275b00df4a9d313ae4682dc91, type: 3}
+  countdownTick: {fileID: 8300000, guid: 823f4e98b061f9b4988a894332ad4ada, type: 3}
+  countdownEnd: {fileID: 8300000, guid: 3949f1b57971f2441847a2db2f0fef92, type: 3}
   mainHPTrack: {fileID: 8300000, guid: 9c9a167fa29a68e44a53f404ce792da7, type: 3}
   lowHPTrack: {fileID: 8300000, guid: 591869d2d9285944fad228a17b5817ea, type: 3}
 --- !u!82 &239248585
@@ -1953,7 +1953,8 @@ AudioSource:
   m_GameObject: {fileID: 602787147}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4290276442084169958, guid: 0f4fd8bf66af47848ba820a6b7c77418,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
